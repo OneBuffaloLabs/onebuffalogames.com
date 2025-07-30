@@ -13,7 +13,7 @@ export const ProjectCard = ({
 }: CardData) => (
   <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 flex flex-col">
     <div className="relative w-full h-48 bg-obl-dark-blue">
-      <Image src={imageUrl} alt={title} layout="fill" objectFit="contain" className="p-4" />
+      <Image src={imageUrl} alt={title} fill className="object-contain p-4" />
     </div>
     <div className="p-6 flex flex-col flex-grow">
       <h3 className={`text-xl font-bold ${fontClass}`}>{title}</h3>

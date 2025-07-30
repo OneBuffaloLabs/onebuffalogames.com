@@ -12,6 +12,7 @@ export const Nav = () => {
             alt="One Buffalo Games Logo"
             width={40}
             height={40}
+            style={{ height: 'auto' }}
           />
           <span className="font-orbitron text-lg hidden sm:block">One Buffalo Games</span>
         </Link>

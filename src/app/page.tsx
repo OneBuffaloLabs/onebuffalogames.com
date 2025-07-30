@@ -16,9 +16,9 @@ const HomePage = () => {
           <Image
             src="/images/banners/logo-banner-trans.png"
             alt="Arcade background"
-            layout="fill"
-            objectFit="cover"
-            className="opacity-10"
+            fill
+            priority
+            className="object-cover opacity-10"
           />
         </div>
         <div className="relative z-10 flex flex-col items-center">
@@ -28,6 +28,7 @@ const HomePage = () => {
             width={250}
             height={250}
             priority
+            style={{ height: 'auto' }}
           />
           <h1 className="text-4xl md:text-6xl font-orbitron mt-4">One Buffalo Games</h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl">

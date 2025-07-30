@@ -10,8 +10,8 @@ const AboutPage = () => {
           <Image
             src="/images/banners/logo-banner-trans.png"
             alt="One Buffalo Games Banner"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
           />
         </div>
         <div className="relative z-10">
