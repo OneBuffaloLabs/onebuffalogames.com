@@ -12,13 +12,13 @@ const HomePage = () => {
       {/* Hero Section */}
       <header className="relative flex flex-col items-center justify-center min-h-screen text-center bg-obl-dark-blue text-white p-8">
         <div className="absolute inset-0 z-0">
-          <Image
+          {/* <Image
             src="/images/banners/logo-banner-trans.png"
             alt="Arcade background"
             layout="fill"
             objectFit="cover"
             className="opacity-10"
-          />
+          /> */}
         </div>
         <div className="relative z-10 flex flex-col items-center">
           <Image
@@ -70,7 +70,6 @@ const HomePage = () => {
           cards={arcadeGamesData}
           ctaLink="/arcade"
           ctaText="Visit the Arcade"
-          titleFontClass="font-arcade"
           ctaButtonClasses="bg-obl-red hover:bg-red-700"
         />
 

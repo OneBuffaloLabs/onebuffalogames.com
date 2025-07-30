@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Orbitron } from 'next/font/google';
 import './globals.css';
 
+// Font Awesome CSS fix
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 const orbitron = Orbitron({ subsets: ['latin'], weight: '700', variable: '--font-orbitron' });
