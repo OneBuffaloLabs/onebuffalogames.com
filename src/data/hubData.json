@@ -1,0 +1,17 @@
+[
+  {
+    "title": "COD RCG",
+    "description": "A comprehensive resource for Call of Duty, featuring detailed weapon stats, attachments, and camo challenges.",
+    "imageUrl": "/images/logos/no-text/one-buffalo-cartoon-no-text-white.png",
+    "linkUrl": "https://codrcg.com",
+    "linkText": "View Hub"
+  },
+  {
+    "title": "Halo Infinite Hub",
+    "description": "Your one-stop-shop for all things Halo Infinite. Stats, strategies, and more.",
+    "imageUrl": "/images/logos/no-text/one-buffalo-cartoon-no-text-white.png",
+    "linkUrl": "#",
+    "linkText": "Coming Soon",
+    "isComingSoon": true
+  }
+]
