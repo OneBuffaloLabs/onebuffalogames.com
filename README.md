@@ -1,6 +1,6 @@
 <div align="center">
 <!--   <img src="[YOUR-LOGO-URL-HERE]" alt="One Buffalo Games Logo" width="200"/> -->
-  <h1>onebuffalogames.com</h1>
+  <h1>One Buffalo Games</h1>
   <p>
     Hey there! Welcome to the codebase for onebuffalogames.com. This is where the magic happens for my central hub of gaming projects, guides, and original web games.
   </p>
