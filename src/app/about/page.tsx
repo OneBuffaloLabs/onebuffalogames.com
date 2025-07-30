@@ -1,17 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
-import { Footer } from '@/components/Footer';
-import { Nav } from '@/components/Nav';
 
 const AboutPage = () => {
   return (
-    <div className="bg-background text-foreground">
-      <Nav />
+    <>
       {/* Hero Section */}
       <header className="relative flex items-center justify-center h-[50vh] bg-obl-dark-blue text-white text-center p-8">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src="/images/banners/logo-banner-trans.webp"
+            src="/images/banners/logo-banner-trans.png"
             alt="One Buffalo Games Banner"
             layout="fill"
             objectFit="cover"
@@ -61,9 +58,7 @@ const AboutPage = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </>
   );
 };
 

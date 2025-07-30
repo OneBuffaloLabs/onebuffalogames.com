@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { FeaturedSection } from '@/components/FeaturedSection';
 import { LatestUpdates } from '@/components/LatestUpdates';
-import { Footer } from '@/components/Footer';
+// Footer is now in the global layout, so we can remove the import here
 import hubData from '@/data/hubData.json';
 import originalGamesData from '@/data/originalGamesData.json';
 import arcadeGamesData from '@/data/arcadeGamesData.json';
@@ -10,12 +10,12 @@ import updatesData from '@/data/updatesData.json';
 
 const HomePage = () => {
   return (
-    <div className="bg-background text-foreground">
+    <>
       {/* Hero Section */}
-      <header className="relative flex flex-col items-center justify-center min-h-screen text-center bg-obl-dark-blue text-white p-8">
+      <header className="relative flex flex-col items-center justify-center h-[65vh] text-center bg-obl-dark-blue text-white p-8 -mt-[72px]">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/banners/logo-banner-trans.webp"
+            src="/images/banners/logo-banner-trans.png"
             alt="Arcade background"
             layout="fill"
             objectFit="cover"
@@ -78,9 +78,7 @@ const HomePage = () => {
 
         <LatestUpdates updates={updatesData} />
       </main>
-
-      <Footer />
-    </div>
+    </>
   );
 };
 
