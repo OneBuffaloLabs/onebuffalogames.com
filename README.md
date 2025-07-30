@@ -67,7 +67,6 @@ Please **do not** copy, modify, or redistribute it for your own projects without
 
 ## 📬 Get In Touch
 
-Created by **[Your Name]** of One Buffalo Labs. Got questions, ideas, or just want to connect? Hit me up.
+Created by One Buffalo Labs. Got questions, ideas, or just want to connect? Hit me up.
 
-* **Email:** `[your.email@example.com]`
 * **GitHub:** `https://github.com/OneBuffaloLabs`
