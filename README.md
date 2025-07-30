@@ -69,4 +69,5 @@ Please **do not** copy, modify, or redistribute it for your own projects without
 
 Created by One Buffalo Labs. Got questions, ideas, or just want to connect? Hit me up.
 
+* **Contact:** [onebuffalolabs.com/#contact](https://onebuffalolabs.com/#contact)
 * **GitHub:** `https://github.com/OneBuffaloLabs`
