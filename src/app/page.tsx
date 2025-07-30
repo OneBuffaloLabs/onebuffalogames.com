@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { FeaturedSection } from '@/components/FeaturedSection';
 import { LatestUpdates } from '@/components/LatestUpdates';
-// Footer is now in the global layout, so we can remove the import here
 import hubData from '@/data/hubData.json';
 import originalGamesData from '@/data/originalGamesData.json';
 import arcadeGamesData from '@/data/arcadeGamesData.json';
