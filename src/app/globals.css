@@ -8,3 +8,16 @@
   --color-background: #ffffff;
   --color-foreground: #171717;
 }
+
+body {
+  font-family: var(--font-geist);
+}
+
+h1,
+h2 {
+  font-family: var(--font-orbitron);
+}
+
+.font-arcade {
+  font-family: var(--font-press-start-2p);
+}

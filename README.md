@@ -1,8 +1,7 @@
 <div align="center">
   <img src="public/images/banners/logo-banner.png" alt="One Buffalo Games Logo" />
-  <h1>One Buffalo Games</h1>
   <p>
-    Hey there! Welcome to the codebase for onebuffalogames.com. This is where the magic happens for my central hub of gaming projects, guides, and original web games.
+    Hey there! Welcome to the codebase for onebuffalogames.com. This is where the magic happens for our central hub of gaming projects, guides, and original web games.
   </p>
   <p>
     <a href="https://onebuffalogames.com"><strong>Check out the Live Site »</strong></a>
@@ -23,7 +22,7 @@
 
 ## 🚀 About This Project
 
-What started as a passion for gaming and code has morphed into this—a central hub for all my gaming projects. This repo holds the keys to the kingdom, containing all the source code for the main website. The goal is to create a cool spot on the web for both in-depth resources for AAA titles and a collection of original, playable games.
+What started as a passion for gaming and code has morphed into this—a central hub for all our gaming projects. This repo holds the keys to the kingdom, containing all the source code for the main website. The goal is to create a cool spot on the web for both in-depth resources for AAA titles and a collection of original, playable games.
 
 ### ✨ Core Features:
 
@@ -59,7 +58,7 @@ Here's a quick map of the codebase and how the site is structured so you can fin
 
 **Long story short: All Rights Reserved.**
 
-This is a source-available project. Feel free to clone it, poke around the code, see how things work, and learn from it. However, since this is also my main business portfolio, I've got to keep the code itself proprietary.
+This is a source-available project. Feel free to clone it, poke around the code, see how things work, and learn from it. However, since this is also our main business portfolio, I've got to keep the code itself proprietary.
 
 Please **do not** copy, modify, or redistribute it for your own projects without getting in touch with me first.
 
