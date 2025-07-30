@@ -7,3 +7,8 @@ export interface CardData {
   isComingSoon?: boolean;
   fontClass?: string;
 }
+
+export interface UpdateData {
+  date: string;
+  description: string;
+}

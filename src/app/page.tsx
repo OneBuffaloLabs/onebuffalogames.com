@@ -1,10 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { FeaturedSection } from '@/components/FeaturedSection';
+import { LatestUpdates } from '@/components/LatestUpdates';
 import { Footer } from '@/components/Footer';
 import hubData from '@/data/hubData.json';
 import originalGamesData from '@/data/originalGamesData.json';
 import arcadeGamesData from '@/data/arcadeGamesData.json';
+import updatesData from '@/data/updatesData.json';
 
 const HomePage = () => {
   return (
@@ -12,13 +14,13 @@ const HomePage = () => {
       {/* Hero Section */}
       <header className="relative flex flex-col items-center justify-center min-h-screen text-center bg-obl-dark-blue text-white p-8">
         <div className="absolute inset-0 z-0">
-          {/* <Image
-            src="/images/banners/logo-banner-trans.png"
+          <Image
+            src="/images/banners/logo-banner-trans.webp"
             alt="Arcade background"
             layout="fill"
             objectFit="cover"
             className="opacity-10"
-          /> */}
+          />
         </div>
         <div className="relative z-10 flex flex-col items-center">
           <Image
@@ -70,29 +72,11 @@ const HomePage = () => {
           cards={arcadeGamesData}
           ctaLink="/arcade"
           ctaText="Visit the Arcade"
+          titleFontClass="font-arcade"
           ctaButtonClasses="bg-obl-red hover:bg-red-700"
         />
 
-        {/* Latest Updates Section */}
-        <section className="bg-gray-100 py-20 px-8">
-          <h2 className="text-3xl font-orbitron text-center mb-12">Latest Updates</h2>
-          <div className="max-w-2xl mx-auto">
-            <ul className="space-y-4">
-              <li className="p-4 bg-white rounded-lg shadow">
-                <p className="font-semibold">July 30, 2025</p>
-                <p>Homepage structure updated for better content flow.</p>
-              </li>
-              <li className="p-4 bg-white rounded-lg shadow">
-                <p className="font-semibold">July 26, 2025</p>
-                <p>Launched the new One Buffalo Games homepage!</p>
-              </li>
-              <li className="p-4 bg-white rounded-lg shadow">
-                <p className="font-semibold">July 15, 2025</p>
-                <p>Started development on the new Tower Defense game.</p>
-              </li>
-            </ul>
-          </div>
-        </section>
+        <LatestUpdates updates={updatesData} />
       </main>
 
       <Footer />
