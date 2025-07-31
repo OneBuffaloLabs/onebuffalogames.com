@@ -5,6 +5,7 @@ import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 import hubData from '@/data/hubData.json';
 import type { Hub } from '@/types';
 import SectionHeader from './SectionHeader';
+import ArcadeButton from '@/components/ArcadeButton';
 
 /**
  * Shuffles an array and returns a new array with the first N items.
@@ -61,6 +62,12 @@ const HubsSection = () => {
             </Link>
           </div>
         ))}
+        {/* UPDATED: This div now spans all columns to center the button correctly */}
+        <div className="sm:col-span-2 lg:col-span-3 text-center mt-16">
+          <ArcadeButton href="/hubs" color="blue">
+            Browse All Hubs
+          </ArcadeButton>
+        </div>
       </div>
     </section>
   );

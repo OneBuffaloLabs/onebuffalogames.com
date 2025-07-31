@@ -3,15 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import SectionHeader from '@/components/home/SectionHeader';
 import HubsSection from '@/components/home/HubsSection';
-
-// This button component remains local as it's only used on this page.
-const ArcadeButton = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <Link
-    href={href}
-    className="inline-block font-orbitron bg-obl-red text-white text-lg font-bold py-3 px-8 border-b-4 border-red-800 rounded-md hover:bg-red-500 hover:border-red-700 active:translate-y-1 active:border-b-2 transition-all duration-150 transform shadow-lg">
-    {children}
-  </Link>
-);
+import ArcadeButton from '@/components/ArcadeButton'; // Import the new component
 
 export default function HomePage() {
   return (
@@ -25,9 +17,16 @@ export default function HomePage() {
             One Buffalo Games
           </h1>
           <p className="font-orbitron text-xl md:text-2xl mb-8 tracking-wider">
-            Your Portal to Classic & Original Arcade Adventures.
+            Your portal to game hubs, original titles, and classic arcade adventures.
           </p>
-          <ArcadeButton href="/games">Start Playing</ArcadeButton>
+          <div className="flex justify-center items-center gap-x-4">
+            <ArcadeButton href="/hubs" color="blue">
+              Checkout Hubs
+            </ArcadeButton>
+            <ArcadeButton href="/games" color="red">
+              Start Playing
+            </ArcadeButton>
+          </div>
         </div>
       </section>
 
@@ -111,7 +110,9 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-16">
-            <ArcadeButton href="/games">Browse All Games</ArcadeButton>
+            <ArcadeButton href="/games" color="red">
+              Browse All Games
+            </ArcadeButton>
           </div>
         </section>
       </div>
