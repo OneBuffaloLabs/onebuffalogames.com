@@ -19,8 +19,8 @@ export default function AboutPage() {
               One Buffalo Games was born from a simple passion: a love for gaming and a drive to
               create cool, useful things for the web. Our mission is to build high-quality gaming
               tools, information hubs, and fun, playable web games that are accessible to everyone.
-              Whether it's a detailed stat tracker for your favorite FPS or a retro arcade game to
-              kill some time, we pour our hearts into every project.
+              Whether it&apos;s a detailed stat tracker for your favorite FPS or a retro arcade game
+              to kill some time, we pour our hearts into every project.
             </p>
           </section>
 
@@ -30,10 +30,10 @@ export default function AboutPage() {
               Rooted in Buffalo
             </h2>
             <p className="font-mono text-lg leading-relaxed text-gray-300">
-              The "One Buffalo" name is a nod to our roots. It represents the spirit of resilience,
-              hard work, and community that defines Buffalo, NY. We bring that same energy to the
-              digital world, aiming to build a community of gamers and developers who share our
-              passion.
+              The &quot;One Buffalo&quot; name is a nod to our roots. It represents the spirit of
+              resilience, hard work, and community that defines Buffalo, NY. We bring that same
+              energy to the digital world, aiming to build a community of gamers and developers who
+              share our passion.
             </p>
           </section>
 
@@ -43,8 +43,8 @@ export default function AboutPage() {
               Our Partnership with Silo City Games
             </h2>
             <p className="font-mono text-lg leading-relaxed text-gray-300">
-              You might see some of our projects cross-referenced with "Silo City Games." We
-              maintain an ongoing partnership with their talented team, collaborating on various
+              You might see some of our projects cross-referenced with &quot;Silo City Games.&quot;
+              We maintain an ongoing partnership with their talented team, collaborating on various
               projects that align with our shared passion for gaming and innovation. This
               partnership allows us to combine our strengths, share ideas, and bring even more
               exciting experiences to the community.
