@@ -34,8 +34,6 @@ export default function HomePage() {
 
       {/* Main content wrapper */}
       <div className="relative py-20 px-4 sm:px-6 lg:px-8 space-y-24 bg-obl-dark-blue/95 scanline-overlay">
-        <LatestUpdatesSection />
-
         {/* Hubs section */}
         <HubsSection />
 
@@ -54,6 +52,9 @@ export default function HomePage() {
           accentColor="blue"
           browseAllLink="/games?filter=arcade"
         />
+
+        {/* Latest Updates Section */}
+        <LatestUpdatesSection />
       </div>
     </>
   );
