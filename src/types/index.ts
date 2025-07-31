@@ -1,14 +1,11 @@
-export interface CardData {
+/**
+ * Defines the structure for a Hub object, matching hubData.json.
+ */
+export interface Hub {
   title: string;
   description: string;
   imageUrl: string;
   linkUrl: string;
   linkText: string;
-  isComingSoon?: boolean;
-  fontClass?: string;
-}
-
-export interface UpdateData {
-  date: string;
-  description: string;
+  isComingSoon?: boolean; // This property is optional
 }
