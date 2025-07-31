@@ -1,9 +1,13 @@
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import SectionHeader from '@/components/home/SectionHeader';
 import HubsSection from '@/components/home/HubsSection';
-import ArcadeButton from '@/components/ArcadeButton'; // Import the new component
+import ArcadeButton from '@/components/ArcadeButton';
+import FeaturedGamesSection from '@/components/home/FeaturedGamesSection';
+
+// Import the new game data
+import originalGamesData from '@/data/originalGames.json';
+import arcadeGamesData from '@/data/arcadeGames.json';
 
 export default function HomePage() {
   return (
@@ -57,64 +61,24 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* This is the new, dynamic Hubs section */}
+        {/* Dynamic Hubs section */}
         <HubsSection />
 
-        {/* One Buffalo Originals Section */}
-        <section>
-          <SectionHeader title="One Buffalo Originals" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className="relative group bg-obl-dark-blue border-2 border-obl-red shadow-lg rounded-lg overflow-hidden">
-                <span className="absolute top-2 right-2 bg-obl-red text-white font-press-start text-xs px-2 py-1 rounded-md z-10">
-                  NEW
-                </span>
-                <img
-                  src={`https://placehold.co/300x200/003091/e7042d?text=Original+Game`}
-                  alt="Original Game"
-                  className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="p-4">
-                  <h3 className="font-orbitron text-xl font-bold">Original Game {i + 1}</h3>
-                  <button className="mt-4 w-full font-bold bg-obl-blue text-white py-2 rounded hover:bg-blue-800 transition-colors">
-                    Play Now
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Dynamic Originals Section */}
+        <FeaturedGamesSection
+          title="One Buffalo Originals"
+          games={originalGamesData}
+          accentColor="red"
+          browseAllLink="/games?filter=originals"
+        />
 
-        {/* Classic Arcade Hits Section */}
-        <section>
-          <SectionHeader title="Classic Arcade Hits" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className="group bg-obl-dark-blue border-2 border-obl-blue shadow-lg rounded-lg overflow-hidden">
-                <img
-                  src={`https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic`}
-                  alt="Arcade Classic"
-                  className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="p-4">
-                  <h3 className="font-orbitron text-xl font-bold">Arcade Classic {i + 1}</h3>
-                  <button className="mt-4 w-full font-bold bg-obl-red text-white py-2 rounded hover:bg-red-500 transition-colors">
-                    Play Now
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-16">
-            <ArcadeButton href="/games" color="red">
-              Browse All Games
-            </ArcadeButton>
-          </div>
-        </section>
+        {/* Dynamic Arcade Section */}
+        <FeaturedGamesSection
+          title="Classic Arcade Hits"
+          games={arcadeGamesData}
+          accentColor="blue"
+          browseAllLink="/games?filter=arcade"
+        />
       </div>
     </>
   );

@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Galaxy Invaders",
+    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
+    "linkUrl": "#",
+    "tags": ["arcade", "shooter"]
+  },
+  {
+    "title": "Block Breaker",
+    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
+    "linkUrl": "#",
+    "tags": ["arcade", "puzzle"]
+  },
+  {
+    "title": "Road Racer",
+    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
+    "linkUrl": "#",
+    "tags": ["arcade", "racing"]
+  },
+  {
+    "title": "Maze Mania",
+    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
+    "linkUrl": "#",
+    "tags": ["arcade", "puzzle", "strategy"]
+  }
+]

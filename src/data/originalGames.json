@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Pixel Puzzler",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Original+Game",
+    "linkUrl": "#",
+    "isNew": true,
+    "tags": ["puzzle", "strategy"]
+  },
+  {
+    "title": "Cyber Runner",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Original+Game",
+    "linkUrl": "#",
+    "tags": ["action", "platformer"]
+  },
+  {
+    "title": "Starship Defender",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Original+Game",
+    "linkUrl": "#",
+    "tags": ["shooter", "sci-fi"]
+  },
+  {
+    "title": "Project Chimera",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Coming+Soon",
+    "linkUrl": "#",
+    "isComingSoon": true,
+    "tags": ["rpg", "adventure"]
+  }
+]

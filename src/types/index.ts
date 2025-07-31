@@ -7,5 +7,17 @@ export interface Hub {
   imageUrl: string;
   linkUrl: string;
   linkText: string;
-  isComingSoon?: boolean; // This property is optional
+  isComingSoon?: boolean;
+}
+
+/**
+ * Defines the structure for a Game object.
+ */
+export interface Game {
+  title: string;
+  imageUrl: string;
+  linkUrl: string;
+  isNew?: boolean;
+  isComingSoon?: boolean;
+  tags: string[]; // Added tags property
 }
