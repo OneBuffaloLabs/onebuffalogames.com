@@ -7,12 +7,6 @@
   --color-obl-dark-blue: #010123;
   --color-background: #ffffff;
   --color-foreground: #171717;
-
-  /* Font Families (maps CSS variables from layout.tsx to Tailwind classes) */
-  --font-family-sans: var(--font-geist-sans);
-  --font-family-mono: var(--font-geist-mono);
-  --font-family-orbitron: var(--font-orbitron);
-  --font-family-press-start: var(--font-press-start-2p);
 }
 
 @layer base {
@@ -41,6 +35,19 @@
 }
 
 @layer utilities {
+  .font-press-start {
+    font-family: var(--font-press-start-2p), ui-monospace, monospace;
+  }
+  .font-sans {
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-mono {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+  }
+  .font-orbitron {
+    font-family: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
+  }
+
   /* Create custom utility classes from keyframes */
   .animate-glow {
     animation: glow 4s ease-in-out infinite;
