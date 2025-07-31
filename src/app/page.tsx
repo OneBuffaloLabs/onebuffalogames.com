@@ -1,11 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
-import SectionHeader from '@/components/home/SectionHeader';
 import HubsSection from '@/components/home/HubsSection';
 import ArcadeButton from '@/components/ArcadeButton';
 import FeaturedGamesSection from '@/components/home/FeaturedGamesSection';
+import LatestUpdatesSection from '@/components/home/LatestUpdatesSection';
 
-// Import the new game data
+// Import game data
 import originalGamesData from '@/data/originalGames.json';
 import arcadeGamesData from '@/data/arcadeGames.json';
 
@@ -36,35 +34,12 @@ export default function HomePage() {
 
       {/* Main content wrapper */}
       <div className="relative py-20 px-4 sm:px-6 lg:px-8 space-y-24 bg-obl-dark-blue/95 scanline-overlay">
-        {/* Latest Updates Section */}
-        <section>
-          <SectionHeader title="Latest Updates" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[...Array(3)].map((_, i) => (
-              <div
-                key={i}
-                className="bg-obl-dark-blue border-2 border-obl-blue p-6 rounded-lg shadow-lg hover:shadow-obl-red/50 hover:-translate-y-1 transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <FontAwesomeIcon icon={faNewspaper} className="h-6 w-6 mr-4 text-obl-red" />
-                  <h3 className="font-orbitron text-xl font-bold text-white">
-                    Update Title {i + 1}
-                  </h3>
-                </div>
-                <p className="text-gray-300 font-mono mb-4">
-                  A brief summary of the latest news, game release, or community event goes here...
-                </p>
-                <a href="#" className="font-bold text-obl-red hover:underline">
-                  Read More &raquo;
-                </a>
-              </div>
-            ))}
-          </div>
-        </section>
+        <LatestUpdatesSection />
 
-        {/* Dynamic Hubs section */}
+        {/* Hubs section */}
         <HubsSection />
 
-        {/* Dynamic Originals Section */}
+        {/* Originals Section */}
         <FeaturedGamesSection
           title="One Buffalo Originals"
           games={originalGamesData}
@@ -72,7 +47,7 @@ export default function HomePage() {
           browseAllLink="/games?filter=originals"
         />
 
-        {/* Dynamic Arcade Section */}
+        {/* Arcade Section */}
         <FeaturedGamesSection
           title="Classic Arcade Hits"
           games={arcadeGamesData}

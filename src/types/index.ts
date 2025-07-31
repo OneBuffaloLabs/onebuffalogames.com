@@ -19,5 +19,22 @@ export interface Game {
   linkUrl: string;
   isNew?: boolean;
   isComingSoon?: boolean;
-  tags: string[]; // Added tags property
+  tags: string[];
+}
+
+/**
+ * Defines the structure for a single change item within a changelog entry.
+ */
+export interface Change {
+  type: 'New' | 'Improved' | 'Fixed';
+  description: string;
+}
+
+/**
+ * Defines the structure for a full changelog entry.
+ */
+export interface ChangelogEntry {
+  date: string;
+  title: string;
+  changes: Change[];
 }
