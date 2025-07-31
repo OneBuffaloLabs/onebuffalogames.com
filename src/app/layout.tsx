@@ -1,17 +1,23 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Orbitron } from 'next/font/google';
+import { Geist, Geist_Mono, Orbitron, Press_Start_2P } from 'next/font/google';
 import './globals.css';
-import { Nav } from '@/components/Nav';
+import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
-const orbitron = Orbitron({ subsets: ['latin'], weight: '700', variable: '--font-orbitron' });
 
 // Font Awesome CSS fix
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
+
+// Font Definitions
+const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
+const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
+const orbitron = Orbitron({ subsets: ['latin'], weight: '700', variable: '--font-orbitron' });
+const pressStart2P = Press_Start_2P({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-press-start-2p',
+});
 
 export const metadata: Metadata = {
   title: 'One Buffalo Games',
@@ -29,8 +35,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased bg-gray-50 flex flex-col min-h-screen`}>
-        <Nav />
+        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} ${pressStart2P.variable} font-sans antialiased bg-obl-dark-blue text-background flex flex-col min-h-screen`}>
+        <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>

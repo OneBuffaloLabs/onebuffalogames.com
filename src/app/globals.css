@@ -1,23 +1,65 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Color Palette */
   --color-obl-red: #e7042d;
   --color-obl-blue: #003091;
   --color-obl-dark-blue: #010123;
-
   --color-background: #ffffff;
   --color-foreground: #171717;
+
+  /* Font Families (maps CSS variables from layout.tsx to Tailwind classes) */
+  --font-family-sans: var(--font-geist-sans);
+  --font-family-mono: var(--font-geist-mono);
+  --font-family-orbitron: var(--font-orbitron);
+  --font-family-press-start: var(--font-press-start-2p);
 }
 
-body {
-  font-family: var(--font-geist);
+@layer base {
+  /* Define keyframes for animations */
+  @keyframes glow {
+    0%,
+    100% {
+      text-shadow: 0 0 5px var(--color-obl-red), 0 0 10px var(--color-obl-red),
+        0 0 15px var(--color-obl-red);
+    }
+    50% {
+      text-shadow: 0 0 10px var(--color-obl-blue), 0 0 20px var(--color-obl-blue),
+        0 0 30px var(--color-obl-blue);
+    }
+  }
+
+  @keyframes flicker {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
 }
 
-h1,
-h2 {
-  font-family: var(--font-orbitron);
-}
+@layer utilities {
+  /* Create custom utility classes from keyframes */
+  .animate-glow {
+    animation: glow 4s ease-in-out infinite;
+  }
+  .animate-flicker {
+    animation: flicker 1.5s infinite;
+  }
 
-.font-arcade {
-  font-family: var(--font-press-start-2p);
+  /* Utility to apply a scanline overlay effect */
+  .scanline-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px);
+    background-size: 100% 3px;
+    opacity: 0.5;
+  }
 }
