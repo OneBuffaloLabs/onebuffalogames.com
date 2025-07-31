@@ -12,7 +12,7 @@ export default function AboutPage() {
         </h1>
 
         <div className="max-w-4xl mx-auto bg-obl-dark-blue border-2 border-obl-blue/50 p-8 rounded-lg shadow-lg space-y-12">
-          {/* Our Mission Section (Updated) */}
+          {/* Our Mission Section */}
           <section>
             <h2 className="font-orbitron text-3xl font-bold text-obl-red mb-4">Our Mission</h2>
             <p className="font-mono text-lg leading-relaxed text-gray-300">
@@ -24,7 +24,7 @@ export default function AboutPage() {
             </p>
           </section>
 
-          {/* Rooted in Buffalo Section (New) */}
+          {/* Rooted in Buffalo Section */}
           <section>
             <h2 className="font-orbitron text-3xl font-bold text-obl-red mb-4">
               Rooted in Buffalo
@@ -37,7 +37,7 @@ export default function AboutPage() {
             </p>
           </section>
 
-          {/* Partnership Section (New) */}
+          {/* Partnership Section */}
           <section>
             <h2 className="font-orbitron text-3xl font-bold text-obl-red mb-4">
               Our Partnership with Silo City Games
@@ -54,10 +54,13 @@ export default function AboutPage() {
           {/* Core Values Section */}
           <section>
             <h2 className="font-orbitron text-3xl font-bold text-obl-red mb-6">Our Core Values</h2>
-            <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
               {coreValues.map((value) => (
-                <li key={value} className="bg-obl-blue/30 p-4 rounded-md border border-obl-blue">
-                  <span className="font-press-start text-lg">{value}</span>
+                <li
+                  key={value}
+                  className="bg-obl-blue/30 p-4 rounded-md border border-obl-blue flex items-center justify-center">
+                  {/* FIX: Font size is now responsive to prevent wrapping on medium screens */}
+                  <span className="font-press-start text-base lg:text-lg">{value}</span>
                 </li>
               ))}
             </ul>
