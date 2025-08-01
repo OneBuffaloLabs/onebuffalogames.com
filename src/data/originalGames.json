@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Pixel Puzzler",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Original+Game",
+    "linkUrl": "#",
+    "isNew": true,
+    "tags": ["originals", "puzzle", "strategy"],
+    "releaseDate": "2025-07-20",
+    "popularity": 85
+  },
+  {
+    "title": "Cyber Runner",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Original+Game",
+    "linkUrl": "#",
+    "tags": ["originals", "action", "platformer"],
+    "releaseDate": "2025-06-15",
+    "popularity": 92
+  },
+  {
+    "title": "Starship Defender",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Original+Game",
+    "linkUrl": "#",
+    "tags": ["originals", "shooter", "sci-fi"],
+    "releaseDate": "2025-05-01",
+    "popularity": 78
+  },
+  {
+    "title": "Project Chimera",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Coming+Soon",
+    "linkUrl": "#",
+    "isComingSoon": true,
+    "tags": ["originals", "rpg", "adventure"],
+    "releaseDate": "2025-12-31",
+    "popularity": 95
+  }
+]

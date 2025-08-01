@@ -1,0 +1,52 @@
+[
+  {
+    "date": "2025-08-10",
+    "title": "One Buffalo Games - Official Launch!",
+    "changes": [
+      {
+        "type": "New",
+        "description": "The full One Buffalo Games website is now live! Explore our game hubs, original titles, and classic arcade games."
+      },
+      {
+        "type": "Improved",
+        "description": "Enhanced responsive design for a seamless experience on all devices, from mobile to desktop."
+      },
+      {
+        "type": "New",
+        "description": "Added a dedicated changelog page to track all future updates and improvements to the site."
+      }
+    ]
+  },
+  {
+    "date": "2025-07-31",
+    "title": "Initial MVP Launch & Core Features",
+    "changes": [
+      {
+        "type": "New",
+        "description": "The first version (MVP) of the One Buffalo Games website has been launched to the public."
+      },
+      {
+        "type": "New",
+        "description": "Homepage now dynamically displays featured hubs, original games, and arcade classics from JSON data files."
+      },
+      {
+        "type": "Improved",
+        "description": "Refactored key homepage sections into reusable React components for better maintainability."
+      }
+    ]
+  },
+  {
+    "date": "2025-07-02",
+    "title": "Project Kickoff & External Site Updates",
+    "changes": [
+      {
+        "type": "Improved",
+        "description": "The codrcg.com website has received a full redesign to align with our new branding and style."
+      },
+      {
+        "type": "New",
+        "description": "Began development of the central One Buffalo Games portal project."
+      }
+    ]
+  }
+]

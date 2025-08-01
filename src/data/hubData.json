@@ -1,17 +1,58 @@
 [
   {
     "title": "COD RCG",
-    "description": "A comprehensive resource for Call of Duty, featuring detailed weapon stats, attachments, and camo challenges.",
-    "imageUrl": "/images/logos/no-text/one-buffalo-cartoon-no-text-white.png",
-    "linkUrl": "https://codrcg.com",
-    "linkText": "View Hub"
+    "description": "Your essential toolkit for Call of Duty, featuring a random loadout generator and a 'Where We Droppin'' tool.",
+    "imageUrl": "",
+    "linkUrl": "https://codrcg.com/",
+    "githubUrl": "https://github.com/SiloCityLabs/codrcg.com",
+    "linkText": "View Hub",
+    "tags": ["call of duty", "fps", "utility"],
+    "releaseDate": "2024-07-02",
+    "popularity": 95
+  },
+  {
+    "title": "Royale Hub",
+    "description": "An essential utility for Fortnite featuring a 'Drop Roulette' to randomly select a landing spot for your squad.",
+    "imageUrl": "",
+    "linkUrl": "https://fortnite.silocitygames.com/",
+    "githubUrl": "https://github.com/SiloCityLabs/fortnite.silocitygames.com",
+    "linkText": "View Hub",
+    "tags": ["fortnite", "battle royale", "utility"],
+    "releaseDate": "2024-08-15",
+    "popularity": 88
+  },
+  {
+    "title": "Off The Grid Field Kit",
+    "description": "An essential utility and toolkit for Off The Grid, featuring a random loadout generator and an info hub.",
+    "imageUrl": "",
+    "linkUrl": "https://offthegrid.silocitygames.com/",
+    "githubUrl": "https://github.com/SiloCityLabs/offthegrid.silocitygames.com",
+    "linkText": "View Kit",
+    "tags": ["off the grid", "battle royale", "sci-fi"],
+    "releaseDate": "2024-10-01",
+    "popularity": 85
+  },
+  {
+    "title": "Craft Random",
+    "description": "A fun randomizer for Minecraft built with Next.js and React, helping you discover new crafting recipes.",
+    "imageUrl": "",
+    "linkUrl": "https://craftrandom.com/",
+    "githubUrl": "https://github.com/SiloCityLabs/craftrandom.com/",
+    "linkText": "Visit Site",
+    "tags": ["minecraft", "sandbox", "utility"],
+    "releaseDate": "2024-05-20",
+    "popularity": 70
   },
   {
     "title": "Halo Infinite Hub",
-    "description": "Your one-stop-shop for all things Halo Infinite. Stats, strategies, and more.",
-    "imageUrl": "/images/logos/no-text/one-buffalo-cartoon-no-text-white.png",
-    "linkUrl": "#",
+    "description": "Your one-stop-shop for all things Halo Infinite, including detailed weapon stats, strategies, and more.",
+    "imageUrl": "",
+    "linkUrl": "",
+    "githubUrl": "",
     "linkText": "Coming Soon",
-    "isComingSoon": true
+    "isComingSoon": true,
+    "tags": ["halo", "fps", "sci-fi"],
+    "releaseDate": "2025-12-01",
+    "popularity": 98
   }
 ]

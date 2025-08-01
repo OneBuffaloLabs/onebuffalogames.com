@@ -1,85 +1,61 @@
-import React from 'react';
-import Image from 'next/image';
-import { FeaturedSection } from '@/components/FeaturedSection';
-import { LatestUpdates } from '@/components/LatestUpdates';
-import hubData from '@/data/hubData.json';
-import originalGamesData from '@/data/originalGamesData.json';
-import arcadeGamesData from '@/data/arcadeGamesData.json';
-import updatesData from '@/data/updatesData.json';
+import HubsSection from '@/components/home/HubsSection';
+import ArcadeButton from '@/components/ArcadeButton';
+import FeaturedGamesSection from '@/components/home/FeaturedGamesSection';
+import LatestUpdatesSection from '@/components/home/LatestUpdatesSection';
 
-const HomePage = () => {
+// Import game data
+import originalGamesData from '@/data/originalGames.json';
+import arcadeGamesData from '@/data/arcadeGames.json';
+
+export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <header className="relative flex flex-col items-center justify-center h-[65vh] text-center bg-obl-dark-blue text-white p-8 -mt-[72px]">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/banners/logo-banner-trans.png"
-            alt="Arcade background"
-            fill
-            priority
-            className="object-cover opacity-10"
-          />
-        </div>
-        <div className="relative z-10 flex flex-col items-center">
-          <Image
-            src="/images/logos/top-text/one-buffalo-cartoon-top-text-white.png"
-            alt="One Buffalo Games Logo"
-            width={250}
-            height={250}
-            priority
-            style={{ height: 'auto' }}
-          />
-          <h1 className="text-4xl md:text-6xl font-orbitron mt-4">One Buffalo Games</h1>
-          <p className="mt-4 text-lg md:text-xl max-w-2xl">
-            Your source for everything from stats to retro arcade fun.
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white overflow-hidden bg-obl-dark-blue">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-obl-dark-blue via-transparent to-transparent"></div>
+        <div className="relative z-10 p-4">
+          <h1 className="font-press-start text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 animate-glow">
+            One Buffalo Games
+          </h1>
+          <p className="font-orbitron text-xl md:text-2xl mb-8 tracking-wider">
+            Your portal to game hubs, original titles, and classic arcade adventures.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a
-              href="/hubs"
-              className="px-8 py-3 bg-obl-red text-white font-semibold rounded-full hover:bg-red-700 transition-colors">
-              View Game Hubs
-            </a>
-            <a
-              href="/games"
-              className="px-8 py-3 border-2 border-obl-blue text-white font-semibold rounded-full hover:bg-obl-blue hover:text-white transition-colors">
-              Play Our Games
-            </a>
+          <div className="flex justify-center items-center gap-x-4">
+            <ArcadeButton href="/hubs" color="blue">
+              Checkout Hubs
+            </ArcadeButton>
+            <ArcadeButton href="/games" color="red">
+              Start Playing
+            </ArcadeButton>
           </div>
         </div>
-      </header>
+      </section>
 
-      <main>
-        <FeaturedSection
-          title="Explore Our Game Hubs"
-          cards={hubData}
-          ctaLink="/hubs"
-          ctaText="View All Hubs"
-          ctaButtonClasses="bg-obl-blue hover:bg-blue-800"
+      {/* Main content wrapper */}
+      <div className="relative py-20 px-4 sm:px-6 lg:px-8 space-y-24 bg-obl-dark-blue/95 scanline-overlay">
+        {/* Hubs section */}
+        <HubsSection />
+
+        {/* Originals Section */}
+        <FeaturedGamesSection
+          title="One Buffalo Originals"
+          games={originalGamesData}
+          accentColor="red"
+          browseAllLink="/games?filter=originals"
         />
 
-        <FeaturedSection
-          title="Play Our Original Games"
-          cards={originalGamesData}
-          ctaLink="/games"
-          ctaText="View All Games"
-          sectionBgClass="bg-gray-100"
-          ctaButtonClasses="bg-obl-blue hover:bg-blue-800"
+        {/* Arcade Section */}
+        <FeaturedGamesSection
+          title="Classic Arcade Hits"
+          games={arcadeGamesData}
+          accentColor="blue"
+          browseAllLink="/games?filter=arcade"
         />
 
-        <FeaturedSection
-          title="From the Arcade"
-          cards={arcadeGamesData}
-          ctaLink="/arcade"
-          ctaText="Visit the Arcade"
-          titleFontClass="font-arcade"
-          ctaButtonClasses="bg-obl-red hover:bg-red-700"
-        />
-
-        <LatestUpdates updates={updatesData} />
-      </main>
+        {/* Latest Updates Section */}
+        <LatestUpdatesSection />
+      </div>
     </>
   );
-};
-
-export default HomePage;
+}

@@ -1,63 +1,57 @@
-import React from 'react';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faTwitter,
+  faXTwitter,
+  faFacebookF,
+  faInstagram,
+  faLinkedin,
   faGithub,
   faBluesky,
-  faFacebook,
-  faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
-export const Footer = () => {
+export function Footer() {
+  const socialLinks = [
+    {
+      icon: faLinkedin,
+      href: 'https://www.linkedin.com/company/one-buffalo-labs',
+      name: 'LinkedIn',
+    },
+    { icon: faXTwitter, href: 'https://x.com/OneBuffaloLabs', name: 'X' },
+    { icon: faInstagram, href: 'https://www.instagram.com/onebuffalolabs/', name: 'Instagram' },
+    { icon: faGithub, href: 'https://github.com/OneBuffaloLabs', name: 'GitHub' },
+    {
+      icon: faFacebookF,
+      href: 'https://www.facebook.com/profile.php?id=61578291081644',
+      name: 'Facebook',
+    },
+    { icon: faBluesky, href: 'https://bsky.app/profile/onebuffalolabs.com', name: 'Bluesky' },
+  ];
+
   const startYear = 2025;
   const currentYear = new Date().getFullYear();
   const yearDisplay = startYear === currentYear ? startYear : `${startYear} - ${currentYear}`;
 
   return (
-    <footer className="bg-obl-dark-blue text-white py-8 px-8 text-center">
-      <p>&copy; {yearDisplay} One Buffalo Labs</p>
-      <div className="flex justify-center gap-6 mt-4">
-        <a
-          href="https://twitter.com/OneBuffaloLabs"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-          className="hover:text-obl-red transition-colors">
-          <FontAwesomeIcon icon={faTwitter} size="2x" />
-        </a>
-        <a
-          href="https://github.com/OneBuffaloLabs"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="hover:text-obl-red transition-colors">
-          <FontAwesomeIcon icon={faGithub} size="2x" />
-        </a>
-        <a
-          href="https://bsky.app/profile/onebuffalolabs.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Bluesky"
-          className="hover:text-obl-red transition-colors">
-          <FontAwesomeIcon icon={faBluesky} size="2x" />
-        </a>
-        <a
-          href="https://www.instagram.com/onebuffalolabs/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="hover:text-obl-red transition-colors">
-          <FontAwesomeIcon icon={faInstagram} size="2x" />
-        </a>
-        <a
-          href="https://www.facebook.com/profile.php?id=61578291081644"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-          className="hover:text-obl-red transition-colors">
-          <FontAwesomeIcon icon={faFacebook} size="2x" />
-        </a>
+    <footer className="bg-obl-dark-blue border-t-2 border-obl-blue/50">
+      {/* The scanline effect is now applied to the wrapper div on each page */}
+      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-sm text-gray-400 font-mono">
+            &copy; {yearDisplay} One Buffalo Games. All Rights Reserved.
+          </p>
+          <div className="flex space-x-6">
+            {socialLinks.map((social, index) => (
+              <Link
+                key={index}
+                href={social.href}
+                className="text-gray-400 hover:text-obl-red transition-colors duration-300">
+                <span className="sr-only">Social Media</span>
+                <FontAwesomeIcon icon={social.icon} className="h-6 w-6" />
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </footer>
   );
-};
+}
