@@ -1,4 +1,15 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateMetadata } from '@/utils/metadata';
+
+// Generate dynamic metadata for this page
+export const metadata: Metadata = generateMetadata({
+  title: 'About Us',
+  description:
+    'Learn about the mission of One Buffalo Games, our roots in Buffalo, NY, and our partnership with Silo City Games. Founded by Andrew Elbaneh (Bana0615).',
+  keywords: ['about us', 'mission', 'Andrew Elbaneh', 'Bana0615', 'Silo City Games', 'Buffalo NY'],
+  urlPath: '/about',
+});
 
 export default function AboutPage() {
   // Core values can be updated or kept as is
@@ -59,7 +70,6 @@ export default function AboutPage() {
                 <li
                   key={value}
                   className="bg-obl-blue/30 p-4 rounded-md border border-obl-blue flex items-center justify-center">
-                  {/* FIX: Font size is now responsive to prevent wrapping on medium screens */}
                   <span className="font-press-start text-base lg:text-lg">{value}</span>
                 </li>
               ))}
@@ -72,20 +82,18 @@ export default function AboutPage() {
               Our Team
             </h2>
             <div className="flex flex-wrap justify-center gap-8">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="flex flex-col items-center">
-                  <div className="w-32 h-32 rounded-full bg-obl-blue border-4 border-obl-red mb-4 overflow-hidden">
-                    <Image
-                      src={`https://placehold.co/128x128/010123/ffffff?text=Team`}
-                      alt={`Team Member ${i + 1}`}
-                      width={128}
-                      height={128}
-                    />
-                  </div>
-                  <h3 className="font-orbitron text-xl font-bold">Player {i + 1}</h3>
-                  <p className="font-mono text-gray-400">Game Developer</p>
+              <div className="flex flex-col items-center">
+                <div className="w-32 h-32 rounded-full bg-obl-blue border-4 border-obl-red mb-4 overflow-hidden">
+                  <Image
+                    src={`https://placehold.co/128x128/010123/ffffff?text=Bana0615`}
+                    alt={`Andrew Elbaneh (Bana0615)`}
+                    width={128}
+                    height={128}
+                  />
                 </div>
-              ))}
+                <h3 className="font-orbitron text-xl font-bold">Andrew Elbaneh (Bana0615)</h3>
+                <p className="font-mono text-gray-400">Founder & Developer</p>
+              </div>
             </div>
           </section>
         </div>
