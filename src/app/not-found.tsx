@@ -1,44 +1,26 @@
 import Link from 'next/link';
-import Image from 'next/image';
-// import { ArrowLeft } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGhost } from '@fortawesome/free-solid-svg-icons';
+import ArcadeButton from '@/components/ArcadeButton';
 
-export default function NotFoundPage() {
+export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8 text-center relative overflow-hidden">
-      {/* Background Watermark Logo */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <Image
-          src="/images/logos/no-text/one-buffalo-cartoon-no-text.svg"
-          alt="One Buffalo Labs Mascot"
-          width={500}
-          height={500}
-          className="opacity-5"
-        />
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center">
-        {/* The large "404" number with a brand-colored gradient */}
-        <h1 className="text-9xl font-black bg-gradient-to-r from-[var(--obl-blue)] to-[var(--obl-red)] bg-clip-text text-transparent mb-2">
-          404
-        </h1>
-
-        {/* The main heading */}
-        <h2 className="text-4xl font-bold text-[var(--obl-dark-blue)] mb-4">Page Not Found</h2>
-
-        {/* The friendly message */}
-        <p className="text-lg text-gray-600 max-w-md mx-auto mb-8">
-          Oops! It looks like you&apos;ve ventured off the path. The page you&apos;re looking for
-          doesn&apos;t exist or has been moved.
+    // FINAL FIX: Use a flexbox container that fills the parent's height (h-full)
+    // and then centers its content both vertically (justify-center) and horizontally (items-center).
+    <div className="relative bg-obl-dark-blue/95 scanline-overlay text-white h-full flex flex-col items-center justify-center text-center p-4 pt-10">
+      <div className="relative z-10">
+        <FontAwesomeIcon icon={faGhost} size="6x" className="text-obl-red mb-8 animate-bounce" />
+        <h1 className="font-press-start text-7xl md:text-9xl mb-4 animate-glow">404</h1>
+        <h2 className="font-orbitron text-3xl md:text-4xl font-bold uppercase tracking-wider mb-4">
+          Page Not Found
+        </h2>
+        <p className="font-mono text-lg text-gray-400 max-w-md mx-auto mb-8">
+          Looks like you took a wrong turn in the pixel maze. The page you're looking for might have
+          been moved or doesn't exist.
         </p>
-
-        {/* The call-to-action button */}
-        <Link
-          href="/"
-          className="inline-flex items-center px-8 py-3 bg-[var(--obl-red)] text-white rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:bg-[var(--obl-red)]/90 hover:scale-105">
-          {/* <ArrowLeft className='w-5 h-5 mr-2' /> */}
-          Go Back Home
-        </Link>
+        <ArcadeButton href="/" color="red">
+          Return to Homepage
+        </ArcadeButton>
       </div>
     </div>
   );
