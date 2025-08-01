@@ -1,8 +1,14 @@
+// --- Next ---
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Orbitron, Press_Start_2P } from 'next/font/google';
-import './globals.css';
+// --- Components ---
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import AnalyticsInitializer from '@/components/AnalyticsInitializer';
+// --- Utils ---
+import { generateMetadata } from '@/utils/metadata';
+// --- Styles ---
+import './globals.css';
 
 // Font Awesome CSS fix
 import { config } from '@fortawesome/fontawesome-svg-core';
@@ -19,13 +25,7 @@ const pressStart2P = Press_Start_2P({
   variable: '--font-press-start-2p',
 });
 
-export const metadata: Metadata = {
-  title: 'One Buffalo Games',
-  description:
-    'Find gaming tools, information hubs, and playable web games at One Buffalo Games. Your source for everything from stats to retro arcade fun.',
-  keywords:
-    'One Buffalo Games, gaming tools, gaming hubs, game information, game stats, stat trackers, loadout builders, interactive maps, web games, arcade games, retro games, Tower Defense, COD RCG, Halo tools, Battlefield info, video game news, Buffalo NY gaming, One Buffalo Labs',
-};
+export const metadata: Metadata = generateMetadata();
 
 export default function RootLayout({
   children,
@@ -39,6 +39,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <AnalyticsInitializer />
       </body>
     </html>
   );
