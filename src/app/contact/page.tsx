@@ -9,6 +9,18 @@ import {
   faBluesky,
 } from '@fortawesome/free-brands-svg-icons';
 import ContactForm from '@/components/contact/ContactForm';
+// --- Next ---
+import type { Metadata } from 'next';
+// --- Utils ---
+import { generateMetadata } from '@/utils/metadata';
+
+export const metadata: Metadata = generateMetadata({
+  title: 'Contact Us',
+  description:
+    'Have a question, feedback, or a bug to report? Get in touch with the One Buffalo Games team through our contact form or find us on social media.',
+  keywords: ['contact', 'support', 'feedback', 'bug report', 'social media'],
+  urlPath: '/contact',
+});
 
 export default function ContactPage() {
   const socialLinks = [

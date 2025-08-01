@@ -68,6 +68,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Hidden fields for Web3Forms */}
         <input type="hidden" name="access_key" value="7eaec1b2-f2fe-4f3a-b04a-3a2ddaea2b71" />
+        {/* TODO: This doesnt work since they fill in the subject */}
         <input type="hidden" name="subject" value="New Inquiry from One Buffalo Games" />
 
         <div>
