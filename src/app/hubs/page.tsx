@@ -1,6 +1,17 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import HubBrowser from '@/components/hubs/HubBrowser';
 import hubData from '@/data/hubData.json';
+import { generateMetadata } from '@/utils/metadata';
+
+// Generate dynamic metadata for this page
+export const metadata: Metadata = generateMetadata({
+  title: 'Gaming Hubs',
+  description:
+    'Explore our collection of gaming hubs, featuring tools and resources for games like Call of Duty, Fortnite, and more.',
+  keywords: ['gaming hubs', 'codrcg', 'royalehub', 'off the grid', 'game tools'],
+  urlPath: '/hubs',
+});
 
 // Define the filter and sort options for the hubs page
 const filterButtons = ['All', 'Utility', 'FPS', 'Battle Royale', 'Sandbox'];
