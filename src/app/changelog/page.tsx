@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faWrench, faBug } from '@fortawesome/free-solid-svg-icons';
 import changelogData from '@/data/changelog/2025.json';
+import { generateMetadata } from '@/utils/metadata';
+
+export const metadata: Metadata = generateMetadata({
+  title: 'Changelog',
+  description:
+    'Follow the latest updates, improvements, and new features for the One Buffalo Games website and its projects.',
+  keywords: ['changelog', 'updates', 'site news', 'new features', 'version history'],
+  urlPath: '/changelog',
+});
 
 // Define the structure of a changelog entry's change item
 interface Change {

@@ -4,7 +4,6 @@ import HubBrowser from '@/components/hubs/HubBrowser';
 import hubData from '@/data/hubData.json';
 import { generateMetadata } from '@/utils/metadata';
 
-// Generate dynamic metadata for this page
 export const metadata: Metadata = generateMetadata({
   title: 'Gaming Hubs',
   description:

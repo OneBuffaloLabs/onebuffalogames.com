@@ -7,7 +7,6 @@ import { generateMetadata } from '@/utils/metadata';
 import originalGamesData from '@/data/originalGames.json';
 import arcadeGamesData from '@/data/arcadeGames.json';
 
-// Generate dynamic metadata for this page
 export const metadata: Metadata = generateMetadata({
   title: 'Arcade & Original Games',
   description:
