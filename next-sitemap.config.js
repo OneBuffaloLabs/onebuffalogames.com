@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://onebuffalogames.com',
+  siteUrl: 'https://onebuffalolabs.com',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
@@ -10,4 +10,5 @@ module.exports = {
       },
     ],
   },
+  outDir: './out',
 };
