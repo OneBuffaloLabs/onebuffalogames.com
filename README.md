@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/images/banners/logo-banner.png" alt="One Buffalo Games Logo" />
+  <img src="public/images/banners/logo-banner.webp" alt="One Buffalo Games Logo" />
   <p>
     Hey there! Welcome to the codebase for onebuffalogames.com. This is where the magic happens for our central hub of gaming projects, guides, and original web games.
   </p>

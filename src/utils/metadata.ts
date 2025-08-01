@@ -17,7 +17,7 @@ const TWITTER_CREATOR = '@onebuffalolabs';
 const DEFAULT_TITLE = 'One Buffalo Games | Game Hubs, Tools & Arcade Fun';
 const DEFAULT_DESCRIPTION =
   'Find gaming tools, information hubs, and playable web games at One Buffalo Games. Your source for everything from stats to retro arcade fun.';
-const DEFAULT_OG_IMAGE = `${BASE_URL}/images/banners/logo-banner-trans.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/images/logos/top-text/one-buffalo-cartoon-top-text-white.png`;
 const DEFAULT_KEYWORDS = [
   'One Buffalo Games',
   'gaming tools',
