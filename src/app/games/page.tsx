@@ -1,9 +1,27 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import GameBrowser from '@/components/games/GameBrowser';
+import { generateMetadata } from '@/utils/metadata';
 
 // Import game data from JSON files
 import originalGamesData from '@/data/originalGames.json';
 import arcadeGamesData from '@/data/arcadeGames.json';
+
+// Generate dynamic metadata for this page
+export const metadata: Metadata = generateMetadata({
+  title: 'Arcade & Original Games',
+  description:
+    'Browse our full collection of original titles and classic arcade games. Filter and sort to find your next adventure.',
+  keywords: [
+    'play games',
+    'arcade games',
+    'original games',
+    'browser games',
+    'puzzle games',
+    'action games',
+  ],
+  urlPath: '/games',
+});
 
 // Combine the two arrays into a single source of truth
 const allGames = [...originalGamesData, ...arcadeGamesData];
