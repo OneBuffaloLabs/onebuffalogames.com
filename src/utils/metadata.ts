@@ -7,6 +7,7 @@ interface PageMetadata {
   description?: string;
   keywords?: string[]; // Always treat keywords as an array for easier merging
   urlPath?: string; // The path of the page, e.g., "/hubs"
+  robots?: Metadata['robots'];
 }
 
 // --- Base Metadata for One Buffalo Games ---
@@ -48,6 +49,7 @@ export function generateMetadata({
   description,
   keywords = [], // Default to an empty array
   urlPath = '',
+  robots,
 }: PageMetadata = {}): Metadata {
   const pageTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
   const pageDescription = description || DEFAULT_DESCRIPTION;
@@ -64,6 +66,7 @@ export function generateMetadata({
     ...(title && { title: title }),
     description: pageDescription,
     keywords: allKeywords,
+    ...(robots && { robots: robots }),
     manifest: '/manifest.json',
     appleWebApp: {
       title: SITE_NAME,
