@@ -7,7 +7,11 @@ export interface Hub {
   imageUrl: string;
   linkUrl: string;
   linkText: string;
+  githubUrl?: string;
   isComingSoon?: boolean;
+  tags: string[];
+  releaseDate: string;
+  popularity: number;
 }
 
 /**
