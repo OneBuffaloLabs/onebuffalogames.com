@@ -13,7 +13,6 @@ interface PageMetadata {
 const BASE_URL = 'https://www.onebuffalogames.com';
 const SITE_NAME = 'One Buffalo Games';
 const TWITTER_CREATOR = '@onebuffalolabs';
-const THEME_COLOR = '#010123';
 const DEFAULT_TITLE = 'One Buffalo Games | Game Hubs, Tools & Arcade Fun';
 const DEFAULT_DESCRIPTION =
   'Find gaming tools, information hubs, and playable web games at One Buffalo Games. Your source for everything from stats to retro arcade fun.';
@@ -66,7 +65,6 @@ export function generateMetadata({
     description: pageDescription,
     keywords: allKeywords,
     manifest: '/manifest.json',
-    themeColor: THEME_COLOR,
     appleWebApp: {
       title: SITE_NAME,
       capable: true,
