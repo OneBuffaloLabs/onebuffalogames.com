@@ -20,6 +20,8 @@ export interface Game {
   isNew?: boolean;
   isComingSoon?: boolean;
   tags: string[];
+  releaseDate: string;
+  popularity: number;
 }
 
 /**
