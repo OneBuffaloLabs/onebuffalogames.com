@@ -7,6 +7,7 @@ interface PageMetadata {
   description?: string;
   keywords?: string[]; // Always treat keywords as an array for easier merging
   urlPath?: string; // The path of the page, e.g., "/hubs"
+  imageUrl?: string;
   robots?: Metadata['robots'];
 }
 
@@ -14,6 +15,7 @@ interface PageMetadata {
 const BASE_URL = 'https://www.onebuffalogames.com';
 const SITE_NAME = 'One Buffalo Games';
 const TWITTER_CREATOR = '@onebuffalolabs';
+const GOOGLE_ADSENSE_ACCOUNT = 'ca-pub-9488377852201328';
 const DEFAULT_TITLE = 'One Buffalo Games | Game Hubs, Tools & Arcade Fun';
 const DEFAULT_DESCRIPTION =
   'Find gaming tools, information hubs, and playable web games at One Buffalo Games. Your source for everything from stats to retro arcade fun.';
@@ -41,24 +43,30 @@ const DEFAULT_KEYWORDS = [
 
 /**
  * Generates metadata for a page, merging with site-wide defaults.
- * @param pageMeta - Page-specific metadata overrides.
- * @returns A Next.js Metadata object.
  */
 export function generateMetadata({
   title,
   description,
-  keywords = [], // Default to an empty array
+  keywords = [],
   urlPath = '',
+  imageUrl,
   robots,
 }: PageMetadata = {}): Metadata {
   const pageTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
   const pageDescription = description || DEFAULT_DESCRIPTION;
   const pageUrl = `${BASE_URL}${urlPath}`;
-
-  // Combine default and page-specific keywords, ensuring no duplicates
   const allKeywords = [...new Set([...DEFAULT_KEYWORDS, ...keywords])];
+  const ogImageUrl = imageUrl ? `${BASE_URL}${imageUrl}` : DEFAULT_OG_IMAGE;
+  const otherMetadata: Metadata['other'] = {};
+  if (GOOGLE_ADSENSE_ACCOUNT) {
+    otherMetadata['google-adsense-account'] = GOOGLE_ADSENSE_ACCOUNT;
+  }
 
   return {
+    metadataBase: new URL(BASE_URL),
+    alternates: {
+      canonical: pageUrl,
+    },
     title: {
       template: `%s | ${SITE_NAME}`,
       default: DEFAULT_TITLE,
@@ -68,6 +76,17 @@ export function generateMetadata({
     keywords: allKeywords,
     ...(robots && { robots: robots }),
     manifest: '/manifest.json',
+    icons: {
+      icon: [
+        // SVG icon for modern browsers
+        { url: '/icon.svg', type: 'image/svg+xml' },
+        { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+        // PNG icon as a fallback
+        { url: '/icon.png', type: 'image/png' },
+      ],
+      // Apple touch icon for iOS devices
+      apple: '/apple-icon.png',
+    },
     appleWebApp: {
       title: SITE_NAME,
       capable: true,
@@ -80,10 +99,11 @@ export function generateMetadata({
       siteName: SITE_NAME,
       images: [
         {
-          url: DEFAULT_OG_IMAGE,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: `${title || 'One Buffalo Games'} - Gaming Tools and Hubs`,
+          alt: `${title || 'One Buffalo Labs'} - Digital Solutions`,
+          type: 'image/png',
         },
       ],
       locale: 'en_US',
@@ -94,11 +114,8 @@ export function generateMetadata({
       title: pageTitle,
       description: pageDescription,
       creator: TWITTER_CREATOR,
-      images: [DEFAULT_OG_IMAGE],
+      images: [ogImageUrl],
     },
-    metadataBase: new URL(BASE_URL),
-    other: {
-      'google-adsense-account': 'ca-pub-9488377852201328',
-    },
+    ...(Object.keys(otherMetadata).length > 0 && { other: otherMetadata }),
   };
 }
