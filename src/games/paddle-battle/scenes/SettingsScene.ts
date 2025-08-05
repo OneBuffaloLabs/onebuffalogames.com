@@ -48,12 +48,15 @@ export class SettingsScene extends Phaser.Scene {
 
   private createDifficultySelector() {
     const difficulties: Difficulty[] = ['easy', 'normal', 'hard'];
-    const cellWidth = 220;
-    const gridWidth = difficulties.length * cellWidth;
+    const spacing = 220; // The space between each option
 
-    this.difficultyLabels = difficulties.map((d) => {
+    this.difficultyLabels = difficulties.map((d, index) => {
+      // Calculate the position for each label
+      const xPos = this.cameras.main.centerX + (index - 1) * spacing;
+      const yPos = 320;
+
       const text = this.add
-        .text(0, 0, d.toUpperCase(), {
+        .text(xPos, yPos, d.toUpperCase(), {
           font: '32px "Press Start 2P"',
           color: '#ffffff',
         })
@@ -67,18 +70,6 @@ export class SettingsScene extends Phaser.Scene {
       });
 
       return text;
-    });
-
-    // Corrected GridAlign to properly center the elements
-    Phaser.Actions.GridAlign(this.difficultyLabels, {
-      width: 3,
-      height: 1,
-      cellWidth: cellWidth,
-      cellHeight: 50,
-      // The starting x position is the center of the screen minus half the total grid width,
-      // plus half a cell's width to center the items within their cells.
-      x: this.cameras.main.centerX - gridWidth / 2 + cellWidth / 2,
-      y: 320,
     });
 
     this.updateSelectorUI();
