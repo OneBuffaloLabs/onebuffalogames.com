@@ -15,6 +15,14 @@ export interface Hub {
 }
 
 /**
+ * Defines a single stat to be displayed for a game.
+ */
+export interface GameStat {
+  key: string; // The key used in local storage (e.g., 'playerWins')
+  label: string; // The display label for the stat (e.g., 'Player Wins')
+}
+
+/**
  * Defines the structure for a Game object.
  */
 export interface Game {
@@ -28,6 +36,7 @@ export interface Game {
   popularity: number;
   description: string; // Game's objective or win condition
   controls: string[]; // An array of strings describing the controls
+  stats?: GameStat[]; // An optional array of stats to display
 }
 
 /**

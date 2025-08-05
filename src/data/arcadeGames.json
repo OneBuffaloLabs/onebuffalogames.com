@@ -11,6 +11,14 @@
       "Use the <span class='text-white font-bold'>UP</span> and <span class='text-white font-bold'>DOWN</span> arrow keys to move your paddle.",
       "Press <span class='text-white font-bold'>P</span> to pause the game.",
       "Press <span class='text-white font-bold'>SPACE</span> to restart after game over."
+    ],
+    "stats": [
+      { "key": "gamesPlayed", "label": "Games Played" },
+      { "key": "playerWins", "label": "Wins" },
+      { "key": "playerLosses", "label": "Losses" },
+      { "key": "longestRally", "label": "Longest Rally" },
+      { "key": "totalRallies", "label": "Total Paddle Hits" },
+      { "key": "totalPlayTime", "label": "Play Time (s)" }
     ]
   },
   {

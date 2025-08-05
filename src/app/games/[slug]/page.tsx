@@ -42,6 +42,7 @@ export default async function GamePage({ params }: GamePageProps) {
       title={gameDetails.title}
       description={gameDetails.description}
       controls={gameDetails.controls}
+      stats={gameDetails?.stats ?? []}
     />
   );
 }

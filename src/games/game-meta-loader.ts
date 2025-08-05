@@ -1,8 +1,7 @@
-import type { Game } from '@/types';
+import type { Game, GameStat } from '@/types';
 import originalGamesData from '@/data/originalGames.json';
 import arcadeGamesData from '@/data/arcadeGames.json';
 
-// --- SERVER-SIDE SAFE LOGIC ---
 const allGames: Game[] = [...originalGamesData, ...arcadeGamesData];
 
 /**
@@ -18,6 +17,7 @@ export function getGameDetailsBySlug(slug: string) {
     title: title,
     description: game?.description || 'No description available.',
     controls: game?.controls || ['No controls specified.'],
+    stats: game?.stats || [], // Return the stats array or an empty one
   };
 }
 
