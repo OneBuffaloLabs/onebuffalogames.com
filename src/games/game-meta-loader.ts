@@ -15,6 +15,9 @@ export function getGameDetailsBySlug(slug: string) {
 
   return {
     title: title,
+    metaDescription:
+      game?.metaDescription ||
+      `Play ${title} on One Buffalo Games, a classic arcade-style game for your browser.`,
     description: game?.description || 'No description available.',
     controls: game?.controls || ['No controls specified.'],
     stats: game?.stats || [],

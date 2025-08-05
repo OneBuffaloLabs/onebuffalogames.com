@@ -29,14 +29,15 @@ export interface Game {
   title: string;
   imageUrl: string;
   linkUrl: string;
+  metaDescription: string;
   isNew?: boolean;
   isComingSoon?: boolean;
   tags: string[];
   releaseDate: string;
   popularity: number;
-  description: string; // Game's objective or win condition
-  controls: string[]; // An array of strings describing the controls
-  stats?: GameStat[]; // An optional array of stats to display
+  description: string;
+  controls: string[];
+  stats?: GameStat[];
 }
 
 /**
