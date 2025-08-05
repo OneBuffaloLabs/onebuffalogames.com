@@ -2,9 +2,16 @@ import * as Phaser from 'phaser';
 import { Paddle } from '../prefabs/Paddle';
 import { Ball } from '../prefabs/Ball';
 import * as statsManager from '@/utils/statsManager';
+import { Difficulty } from './StartScene';
 
 const WINNING_SCORE = 10;
 const GAME_ID = 'paddle-battle';
+
+const DIFFICULTY_SETTINGS = {
+  easy: { opponentSpeed: 150 },
+  normal: { opponentSpeed: 250 },
+  hard: { opponentSpeed: 350 },
+};
 
 export class MainScene extends Phaser.Scene {
   private player!: Paddle;
@@ -23,28 +30,35 @@ export class MainScene extends Phaser.Scene {
   private totalPlayTime = 0;
   private isGameOver = false;
   private isPaused = false;
+  private difficulty: Difficulty = 'normal';
 
   constructor() {
     super({ key: 'MainScene' });
   }
 
+  init(data: { difficulty: Difficulty }) {
+    // Receive the difficulty from the StartScene
+    this.difficulty = data.difficulty || 'normal';
+  }
+
   create() {
     statsManager.incrementStat(GAME_ID, 'gamesPlayed');
-    this.createThemedTextures(); // Create our new Buffalo-themed assets
-    this.drawCenterLine(); // Draw the center line
+    this.createThemedTextures();
+    this.drawCenterLine();
 
     this.physics.world.setBoundsCollision(false, false, true, true);
 
-    // Create paddles using their new, colored texture keys
     this.player = new Paddle(this, 50, this.cameras.main.centerY, 'paddle_blue');
+    // Pass the opponent speed from settings to the paddle
+    const opponentSpeed = DIFFICULTY_SETTINGS[this.difficulty].opponentSpeed;
     this.opponent = new Paddle(
       this,
       this.cameras.main.width - 50,
       this.cameras.main.centerY,
-      'paddle_red'
+      'paddle_red',
+      opponentSpeed
     );
 
-    // The ball prefab will now automatically use the 'snowflake_ball' texture
     this.ball = new Ball(this, this.cameras.main.centerX, this.cameras.main.centerY);
 
     this.physics.add.collider(
@@ -72,9 +86,7 @@ export class MainScene extends Phaser.Scene {
   }
 
   update(time: number, delta: number) {
-    if (Phaser.Input.Keyboard.JustDown(this.pauseKey)) {
-      this.togglePause();
-    }
+    if (Phaser.Input.Keyboard.JustDown(this.pauseKey)) this.togglePause();
     if (this.isPaused || this.isGameOver) return;
     this.totalPlayTime += delta;
     this.player.handlePlayerMovement(this.cursors);
@@ -159,7 +171,7 @@ export class MainScene extends Phaser.Scene {
     this.isGameOver = false;
     this.isPaused = false;
     this.totalPlayTime = 0;
-    this.scene.restart();
+    this.scene.restart({ difficulty: this.difficulty });
   }
 
   private createScoreboard() {
@@ -202,18 +214,17 @@ export class MainScene extends Phaser.Scene {
   private createThemedTextures() {
     const graphics = this.make.graphics();
 
-    graphics.fillStyle(0x003091); // obl-blue
+    graphics.fillStyle(0x003091);
     graphics.fillRect(0, 0, 20, 100);
     graphics.generateTexture('paddle_blue', 20, 100);
     graphics.clear();
 
-    graphics.fillStyle(0xe7042d); // obl-red
+    graphics.fillStyle(0xe7042d);
     graphics.fillRect(0, 0, 20, 100);
     graphics.generateTexture('paddle_red', 20, 100);
     graphics.clear();
 
-    // Snowflake Ball
-    graphics.fillStyle(0xffffff); // White
+    graphics.fillStyle(0xffffff);
     const snowflakePixels = [
       { x: 3, y: 0, w: 1, h: 7 },
       { x: 0, y: 3, w: 7, h: 1 },
