@@ -1,4 +1,5 @@
 import * as Phaser from 'phaser';
+import { StartScene } from './scenes/StartScene';
 import { MainScene } from './scenes/MainScene';
 
 // This is the configuration for our Paddle Battle game
@@ -13,5 +14,5 @@ export const paddleBattleConfig: Phaser.Types.Core.GameConfig = {
       gravity: { x: 0, y: 0 },
     },
   },
-  scene: [MainScene],
+  scene: [StartScene, MainScene],
 };
