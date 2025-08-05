@@ -24,6 +24,8 @@ function saveStats(gameId: string, stats: GameStats) {
   if (typeof window === 'undefined') return;
   const key = getStatsKey(gameId);
   localStorage.setItem(key, JSON.stringify(stats));
+  // Dispatch a custom event to notify the UI of the change.
+  window.dispatchEvent(new CustomEvent('statsUpdated'));
 }
 
 // --- Public API for Stats Management ---

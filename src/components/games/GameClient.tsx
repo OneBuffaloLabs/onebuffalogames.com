@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import ArcadeButton from '@/components/ArcadeButton';
 import type { IGameConfig } from '@/games/game-loader';
@@ -17,12 +17,18 @@ interface GameClientProps {
   title: string;
   description: string;
   controls: string[];
-  stats: GameStat[]; // The array defining which stats to show
+  stats: GameStat[];
 }
 
 export default function GameClient({ slug, title, description, controls, stats }: GameClientProps) {
   const [gameConfig, setGameConfig] = useState<IGameConfig | null>(null);
   const [playerStats, setPlayerStats] = useState<Record<string, number>>({});
+
+  // useCallback ensures the function identity is stable across re-renders
+  const refreshStats = useCallback(() => {
+    const allStats = statsManager.getAllStats(slug);
+    setPlayerStats(allStats);
+  }, [slug]);
 
   useEffect(() => {
     // Load the game config
@@ -31,10 +37,17 @@ export default function GameClient({ slug, title, description, controls, stats }
       setGameConfig(config);
     });
 
-    // Load all stats for this game from local storage
-    const allStats = statsManager.getAllStats(slug);
-    setPlayerStats(allStats);
-  }, [slug]);
+    // Initial load of stats
+    refreshStats();
+
+    // Add an event listener to update stats in real-time
+    window.addEventListener('statsUpdated', refreshStats);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('statsUpdated', refreshStats);
+    };
+  }, [slug, refreshStats]);
 
   return (
     <div className="relative bg-obl-dark-blue/95 scanline-overlay text-white min-h-screen py-16">
@@ -55,7 +68,6 @@ export default function GameClient({ slug, title, description, controls, stats }
         </div>
 
         <div className="max-w-2xl mx-auto text-left font-mono text-gray-300 space-y-8">
-          {/* Controls & Objective Section */}
           <div>
             <h2 className="font-orbitron text-2xl font-bold text-obl-red mb-4">
               Controls & Objective
@@ -66,7 +78,6 @@ export default function GameClient({ slug, title, description, controls, stats }
             <p>{description}</p>
           </div>
 
-          {/* Player Stats Section */}
           {stats && stats.length > 0 && (
             <div>
               <h2 className="font-orbitron text-2xl font-bold text-obl-red mb-4">Player Stats</h2>
