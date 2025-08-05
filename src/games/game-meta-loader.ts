@@ -1,11 +1,11 @@
-import type { Game, GameStat } from '@/types';
+import type { Game } from '@/types';
 import originalGamesData from '@/data/originalGames.json';
 import arcadeGamesData from '@/data/arcadeGames.json';
 
 const allGames: Game[] = [...originalGamesData, ...arcadeGamesData];
 
 /**
- * [SERVER-SAFE] Retrieves basic game details without importing Phaser.
+ * [SERVER-SAFE] Retrieves basic game details using the final slug from the path.
  */
 export function getGameDetailsBySlug(slug: string) {
   const game = allGames.find((g) => g.linkUrl.endsWith(slug));
@@ -17,17 +17,19 @@ export function getGameDetailsBySlug(slug: string) {
     title: title,
     description: game?.description || 'No description available.',
     controls: game?.controls || ['No controls specified.'],
-    stats: game?.stats || [], // Return the stats array or an empty one
+    stats: game?.stats || [],
   };
 }
 
 /**
- * [SERVER-SAFE] Gets all game slugs for static generation.
+ * [SERVER-SAFE] Gets all game slugs for static generation, formatted for catch-all routes.
  */
 export function getAllGameSlugs() {
   return allGames
-    .map((game) => ({
-      slug: game.linkUrl.split('/').pop() || '',
-    }))
-    .filter((item) => item.slug && !item.slug.startsWith('#'));
+    .map((game) => {
+      // Remove the leading '/games/' and split the rest into an array
+      const slugParts = game.linkUrl.replace('/games/', '').split('/');
+      return { slug: slugParts };
+    })
+    .filter((item) => item.slug.length > 0 && !item.slug[0].startsWith('#'));
 }
