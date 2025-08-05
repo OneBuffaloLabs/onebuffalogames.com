@@ -2,6 +2,7 @@
 module.exports = {
   siteUrl: 'https://onebuffalogames.com',
   generateRobotsTxt: true,
+  trailingSlash: true,
   robotsTxtOptions: {
     policies: [
       {
