@@ -1,9 +1,10 @@
 import * as Phaser from 'phaser';
 
 export class Paddle extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene: Phaser.Scene, x: number, y: number) {
-    // The 'paddle' texture is now expected to already exist.
-    super(scene, x, y, 'paddle');
+  // The constructor now accepts a textureKey
+  constructor(scene: Phaser.Scene, x: number, y: number, textureKey: string) {
+    // Use the provided texture key
+    super(scene, x, y, textureKey);
 
     scene.add.existing(this);
     scene.physics.add.existing(this);

@@ -2,8 +2,7 @@ import * as Phaser from 'phaser';
 
 export class Ball extends Phaser.Physics.Arcade.Sprite {
   constructor(scene: Phaser.Scene, x: number, y: number) {
-    // The 'ball' texture is now expected to already exist.
-    super(scene, x, y, 'ball');
+    super(scene, x, y, 'snowflake_ball');
 
     scene.add.existing(this);
     scene.physics.add.existing(this);
