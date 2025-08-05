@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { getGameDetailsBySlug, getAllGameSlugs } from '@/games/game-meta-loader';
 import { generateMetadata as generatePageMetadata } from '@/utils/metadata';
-import GameClient from '@/components/games/GameClient';
+import GameClient from '@/components/games/GameClient'; // Import the client component
 
 interface GamePageProps {
   params: Promise<{ slug: string }>;
 }
 
-// This function is now 100% server-safe.
+// This function runs on the server and is safe.
 export async function generateMetadata({ params }: GamePageProps): Promise<Metadata> {
   const { slug } = await params;
 
@@ -20,17 +20,21 @@ export async function generateMetadata({ params }: GamePageProps): Promise<Metad
   });
 }
 
-// This function is also server-safe.
+// This function runs on the server and is safe.
 export async function generateStaticParams() {
   return getAllGameSlugs();
 }
 
 /**
- * The dynamic page component remains a Server Component.
- * It passes the slug to the GameClient, which will handle all client-side logic.
+ * The dynamic page component, which remains a Server Component.
+ * It fetches server-side data and passes it to the client boundary.
  */
 export default async function GamePage({ params }: GamePageProps) {
   const { slug } = await params;
 
-  return <GameClient slug={slug} />;
+  // Fetch the game details on the server.
+  const gameDetails = getGameDetailsBySlug(slug);
+
+  // Render the client component, passing down the necessary props.
+  return <GameClient slug={slug} title={gameDetails.title} />;
 }
