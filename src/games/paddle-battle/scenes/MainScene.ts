@@ -1,11 +1,10 @@
 import * as Phaser from 'phaser';
 import { Paddle } from '../prefabs/Paddle';
 import { Ball } from '../prefabs/Ball';
-// Import the generic stats manager
 import * as statsManager from '@/utils/statsManager';
 
 const WINNING_SCORE = 10;
-const GAME_ID = 'paddle-battle'; // Define a unique ID for this game
+const GAME_ID = 'paddle-battle';
 
 export class MainScene extends Phaser.Scene {
   private player!: Paddle;
@@ -14,6 +13,7 @@ export class MainScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private playerScoreText!: Phaser.GameObjects.Text;
   private opponentScoreText!: Phaser.GameObjects.Text;
+  private spaceKey!: Phaser.Input.Keyboard.Key;
 
   private playerScore = 0;
   private opponentScore = 0;
@@ -48,8 +48,10 @@ export class MainScene extends Phaser.Scene {
     );
 
     this.cursors = this.input.keyboard!.createCursorKeys();
-    this.createScoreboard();
+    // Add a listener for the spacebar
+    this.spaceKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
+    this.createScoreboard();
     this.ball.reset();
   }
 
@@ -76,7 +78,6 @@ export class MainScene extends Phaser.Scene {
     } else if (this.ball.x > this.cameras.main.width) {
       this.playerScore++;
       this.playerScoreText.setText(this.playerScore.toString());
-      // Use the new generic stat function
       statsManager.incrementStat(GAME_ID, 'totalPointsScored');
       this.endRally();
       this.checkWinCondition();
@@ -84,7 +85,6 @@ export class MainScene extends Phaser.Scene {
   }
 
   private endRally() {
-    // Use the new generic stat function for highest value
     statsManager.updateHighestStat(GAME_ID, 'longestRally', this.currentRally);
     this.currentRally = 0;
     if (!this.isGameOver) {
@@ -95,7 +95,6 @@ export class MainScene extends Phaser.Scene {
   private checkWinCondition() {
     if (this.playerScore >= WINNING_SCORE) {
       this.endGame('You Win!');
-      // Use the new generic stat function
       statsManager.incrementStat(GAME_ID, 'playerWins');
     } else if (this.opponentScore >= WINNING_SCORE) {
       this.endGame('You Lose!');
@@ -114,19 +113,29 @@ export class MainScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
+    // Updated text to include the spacebar option
     this.add
-      .text(this.cameras.main.centerX, this.cameras.main.centerY + 80, 'Click to Restart', {
-        font: '24px "Press Start 2P"',
-        color: '#ffffff',
-      })
+      .text(
+        this.cameras.main.centerX,
+        this.cameras.main.centerY + 80,
+        'Click or Press Space to Restart',
+        {
+          font: '24px "Press Start 2P"',
+          color: '#ffffff',
+        }
+      )
       .setOrigin(0.5);
 
-    this.input.once('pointerdown', () => {
-      this.playerScore = 0;
-      this.opponentScore = 0;
-      this.isGameOver = false;
-      this.scene.restart();
-    });
+    // Set up a single listener for both click and spacebar
+    this.input.once('pointerdown', this.restartGame, this);
+    this.spaceKey.once('down', this.restartGame, this);
+  }
+
+  private restartGame() {
+    this.playerScore = 0;
+    this.opponentScore = 0;
+    this.isGameOver = false;
+    this.scene.restart();
   }
 
   private createScoreboard() {
