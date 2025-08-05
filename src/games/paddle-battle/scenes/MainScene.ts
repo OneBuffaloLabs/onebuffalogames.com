@@ -20,6 +20,7 @@ export class MainScene extends Phaser.Scene {
   private playerScore = 0;
   private opponentScore = 0;
   private currentRally = 0;
+  private totalPlayTime = 0; // Tracks play time for the current session in milliseconds
   private isGameOver = false;
   private isPaused = false;
 
@@ -28,6 +29,9 @@ export class MainScene extends Phaser.Scene {
   }
 
   create() {
+    // Increment gamesPlayed at the start of a new game session.
+    statsManager.incrementStat(GAME_ID, 'gamesPlayed');
+
     this.createTextures();
     this.physics.world.setBoundsCollision(false, false, true, true);
 
@@ -50,7 +54,6 @@ export class MainScene extends Phaser.Scene {
       this
     );
 
-    // Input setup
     this.cursors = this.input.keyboard!.createCursorKeys();
     this.spaceKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.pauseKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.P);
@@ -60,16 +63,17 @@ export class MainScene extends Phaser.Scene {
     this.ball.reset();
   }
 
-  update() {
-    // Handle the pause key input first, so it works even when paused or game over.
+  update(time: number, delta: number) {
     if (Phaser.Input.Keyboard.JustDown(this.pauseKey)) {
       this.togglePause();
     }
 
-    // If the game is paused or over, do not run the main game logic.
     if (this.isPaused || this.isGameOver) {
       return;
     }
+
+    // Accumulate play time every frame the game is active.
+    this.totalPlayTime += delta;
 
     this.player.handlePlayerMovement(this.cursors);
     this.opponent.handleAiMovement(this.ball);
@@ -77,13 +81,8 @@ export class MainScene extends Phaser.Scene {
   }
 
   private togglePause() {
-    // Don't allow pausing if the game is already over
-    if (this.isGameOver) {
-      return;
-    }
-
+    if (this.isGameOver) return;
     this.isPaused = !this.isPaused;
-
     if (this.isPaused) {
       this.physics.pause();
       this.pauseText.setVisible(true);
@@ -95,6 +94,8 @@ export class MainScene extends Phaser.Scene {
 
   private handlePaddleBallCollision() {
     this.currentRally++;
+    // Correctly increment total paddle hits here.
+    statsManager.incrementStat(GAME_ID, 'totalRallies');
   }
 
   private checkScoring() {
@@ -126,6 +127,8 @@ export class MainScene extends Phaser.Scene {
       statsManager.incrementStat(GAME_ID, 'playerWins');
     } else if (this.opponentScore >= WINNING_SCORE) {
       this.endGame('You Lose!');
+      // Track player losses
+      statsManager.incrementStat(GAME_ID, 'playerLosses');
     }
   }
 
@@ -133,6 +136,9 @@ export class MainScene extends Phaser.Scene {
     this.isGameOver = true;
     this.physics.pause();
     this.ball.setVisible(false);
+
+    // Save the total play time in seconds for this session
+    statsManager.incrementStat(GAME_ID, 'totalPlayTime', Math.round(this.totalPlayTime / 1000));
 
     this.add
       .text(this.cameras.main.centerX, this.cameras.main.centerY, message, {
@@ -145,7 +151,7 @@ export class MainScene extends Phaser.Scene {
       .text(
         this.cameras.main.centerX,
         this.cameras.main.centerY + 80,
-        'Click or Press Space to Restart',
+        'Click Here or Press Space to Restart',
         {
           font: '24px "Press Start 2P"',
           color: '#ffffff',
@@ -161,7 +167,8 @@ export class MainScene extends Phaser.Scene {
     this.playerScore = 0;
     this.opponentScore = 0;
     this.isGameOver = false;
-    this.isPaused = false; // Ensure pause state is reset
+    this.isPaused = false;
+    this.totalPlayTime = 0; // Reset play time for the new game
     this.scene.restart();
   }
 
@@ -196,9 +203,7 @@ export class MainScene extends Phaser.Scene {
     graphics.fillStyle(0xffffff);
     graphics.fillRect(0, 0, 20, 100);
     graphics.generateTexture('paddle', 20, 100);
-
     graphics.clear();
-
     graphics.fillStyle(0xffffff);
     graphics.fillCircle(10, 10, 10);
     graphics.generateTexture('ball', 20, 20);
