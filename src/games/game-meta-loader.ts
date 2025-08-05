@@ -1,19 +1,24 @@
+import type { Game } from '@/types';
 import originalGamesData from '@/data/originalGames.json';
 import arcadeGamesData from '@/data/arcadeGames.json';
 
 // --- SERVER-SIDE SAFE LOGIC ---
-const allGames = [...originalGamesData, ...arcadeGamesData];
+const allGames: Game[] = [...originalGamesData, ...arcadeGamesData];
 
 /**
- * [SERVER-SAFE] Retrieves basic game details (like title) without importing Phaser.
- * This is safe to use in Server Components for generating metadata.
+ * [SERVER-SAFE] Retrieves basic game details without importing Phaser.
  */
-export function getGameDetailsBySlug(slug: string): { title: string } {
+export function getGameDetailsBySlug(slug: string) {
   const game = allGames.find((g) => g.linkUrl.endsWith(slug));
   const title = game
     ? game.title
     : slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
-  return { title };
+
+  return {
+    title: title,
+    description: game?.description || 'No description available.',
+    controls: game?.controls || ['No controls specified.'],
+  };
 }
 
 /**

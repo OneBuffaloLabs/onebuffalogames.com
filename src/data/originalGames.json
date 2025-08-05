@@ -6,7 +6,9 @@
     "isNew": true,
     "tags": ["originals", "puzzle", "strategy"],
     "releaseDate": "2025-07-20",
-    "popularity": 85
+    "popularity": 85,
+    "description": "",
+    "controls": []
   },
   {
     "title": "Cyber Runner",
@@ -14,7 +16,9 @@
     "linkUrl": "#",
     "tags": ["originals", "action", "platformer"],
     "releaseDate": "2025-06-15",
-    "popularity": 92
+    "popularity": 92,
+    "description": "",
+    "controls": []
   },
   {
     "title": "Starship Defender",
@@ -22,7 +26,9 @@
     "linkUrl": "#",
     "tags": ["originals", "shooter", "sci-fi"],
     "releaseDate": "2025-05-01",
-    "popularity": 78
+    "popularity": 78,
+    "description": "",
+    "controls": []
   },
   {
     "title": "Project Chimera",
@@ -31,6 +37,8 @@
     "isComingSoon": true,
     "tags": ["originals", "rpg", "adventure"],
     "releaseDate": "2025-12-31",
-    "popularity": 95
+    "popularity": 95,
+    "description": "",
+    "controls": []
   }
 ]

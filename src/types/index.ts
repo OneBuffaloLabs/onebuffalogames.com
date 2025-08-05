@@ -26,6 +26,8 @@ export interface Game {
   tags: string[];
   releaseDate: string;
   popularity: number;
+  description: string; // Game's objective or win condition
+  controls: string[]; // An array of strings describing the controls
 }
 
 /**

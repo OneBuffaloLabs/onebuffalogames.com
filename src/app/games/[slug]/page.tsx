@@ -36,5 +36,12 @@ export default async function GamePage({ params }: GamePageProps) {
   const gameDetails = getGameDetailsBySlug(slug);
 
   // Render the client component, passing down the necessary props.
-  return <GameClient slug={slug} title={gameDetails.title} />;
+  return (
+    <GameClient
+      slug={slug}
+      title={gameDetails.title}
+      description={gameDetails.description}
+      controls={gameDetails.controls}
+    />
+  );
 }

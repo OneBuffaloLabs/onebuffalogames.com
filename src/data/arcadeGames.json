@@ -5,7 +5,13 @@
     "linkUrl": "/games/paddle-battle",
     "tags": ["arcade", "classic"],
     "releaseDate": "2025-08-05",
-    "popularity": 95
+    "popularity": 95,
+    "description": "First to 10 points wins!",
+    "controls": [
+      "Use the <span class='text-white font-bold'>UP</span> and <span class='text-white font-bold'>DOWN</span> arrow keys to move your paddle.",
+      "Press <span class='text-white font-bold'>P</span> to pause the game.",
+      "Press <span class='text-white font-bold'>SPACE</span> to restart after game over."
+    ]
   },
   {
     "title": "Galaxy Invaders",
@@ -14,7 +20,9 @@
     "isComingSoon": true,
     "tags": ["arcade", "shooter"],
     "releaseDate": "2024-10-25",
-    "popularity": 90
+    "popularity": 90,
+    "description": "",
+    "controls": []
   },
   {
     "title": "Block Breaker",
@@ -23,7 +31,9 @@
     "isComingSoon": true,
     "tags": ["arcade", "puzzle"],
     "releaseDate": "2024-09-11",
-    "popularity": 88
+    "popularity": 88,
+    "description": "",
+    "controls": []
   },
   {
     "title": "Maze Mania",
@@ -32,6 +42,8 @@
     "isComingSoon": true,
     "tags": ["arcade", "puzzle", "strategy"],
     "releaseDate": "2024-08-19",
-    "popularity": 82
+    "popularity": 82,
+    "description": "",
+    "controls": []
   }
 ]
