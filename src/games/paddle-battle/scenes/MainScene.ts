@@ -14,11 +14,14 @@ export class MainScene extends Phaser.Scene {
   private playerScoreText!: Phaser.GameObjects.Text;
   private opponentScoreText!: Phaser.GameObjects.Text;
   private spaceKey!: Phaser.Input.Keyboard.Key;
+  private pauseKey!: Phaser.Input.Keyboard.Key;
+  private pauseText!: Phaser.GameObjects.Text;
 
   private playerScore = 0;
   private opponentScore = 0;
   private currentRally = 0;
   private isGameOver = false;
+  private isPaused = false;
 
   constructor() {
     super({ key: 'MainScene' });
@@ -47,22 +50,47 @@ export class MainScene extends Phaser.Scene {
       this
     );
 
+    // Input setup
     this.cursors = this.input.keyboard!.createCursorKeys();
-    // Add a listener for the spacebar
     this.spaceKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.pauseKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.P);
 
     this.createScoreboard();
+    this.createPauseText();
     this.ball.reset();
   }
 
   update() {
-    if (this.isGameOver) {
+    // Handle the pause key input first, so it works even when paused or game over.
+    if (Phaser.Input.Keyboard.JustDown(this.pauseKey)) {
+      this.togglePause();
+    }
+
+    // If the game is paused or over, do not run the main game logic.
+    if (this.isPaused || this.isGameOver) {
       return;
     }
 
     this.player.handlePlayerMovement(this.cursors);
     this.opponent.handleAiMovement(this.ball);
     this.checkScoring();
+  }
+
+  private togglePause() {
+    // Don't allow pausing if the game is already over
+    if (this.isGameOver) {
+      return;
+    }
+
+    this.isPaused = !this.isPaused;
+
+    if (this.isPaused) {
+      this.physics.pause();
+      this.pauseText.setVisible(true);
+    } else {
+      this.physics.resume();
+      this.pauseText.setVisible(false);
+    }
   }
 
   private handlePaddleBallCollision() {
@@ -113,7 +141,6 @@ export class MainScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Updated text to include the spacebar option
     this.add
       .text(
         this.cameras.main.centerX,
@@ -126,7 +153,6 @@ export class MainScene extends Phaser.Scene {
       )
       .setOrigin(0.5);
 
-    // Set up a single listener for both click and spacebar
     this.input.once('pointerdown', this.restartGame, this);
     this.spaceKey.once('down', this.restartGame, this);
   }
@@ -135,6 +161,7 @@ export class MainScene extends Phaser.Scene {
     this.playerScore = 0;
     this.opponentScore = 0;
     this.isGameOver = false;
+    this.isPaused = false; // Ensure pause state is reset
     this.scene.restart();
   }
 
@@ -151,6 +178,17 @@ export class MainScene extends Phaser.Scene {
         color: '#ffffff',
       })
       .setOrigin(0.5);
+  }
+
+  private createPauseText() {
+    this.pauseText = this.add
+      .text(this.cameras.main.centerX, this.cameras.main.centerY, 'PAUSED', {
+        font: '64px "Press Start 2P"',
+        color: '#ffffff',
+      })
+      .setOrigin(0.5)
+      .setVisible(false)
+      .setDepth(1);
   }
 
   private createTextures() {
