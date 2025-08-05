@@ -1,8 +1,17 @@
 [
   {
+    "title": "Paddle Battle",
+    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Paddle+Battle",
+    "linkUrl": "/games/paddle-battle",
+    "tags": ["arcade", "classic"],
+    "releaseDate": "2025-08-05",
+    "popularity": 95
+  },
+  {
     "title": "Galaxy Invaders",
     "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
-    "linkUrl": "#",
+    "linkUrl": "/games/galaxy-invaders",
+    "isComingSoon": true,
     "tags": ["arcade", "shooter"],
     "releaseDate": "2024-10-25",
     "popularity": 90
@@ -10,23 +19,17 @@
   {
     "title": "Block Breaker",
     "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
-    "linkUrl": "#",
+    "linkUrl": "/games/block-breaker",
+    "isComingSoon": true,
     "tags": ["arcade", "puzzle"],
     "releaseDate": "2024-09-11",
     "popularity": 88
   },
   {
-    "title": "Road Racer",
-    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
-    "linkUrl": "#",
-    "tags": ["arcade", "racing"],
-    "releaseDate": "2024-11-05",
-    "popularity": 75
-  },
-  {
     "title": "Maze Mania",
     "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
-    "linkUrl": "#",
+    "linkUrl": "/games/maze-mania",
+    "isComingSoon": true,
     "tags": ["arcade", "puzzle", "strategy"],
     "releaseDate": "2024-08-19",
     "popularity": 82
