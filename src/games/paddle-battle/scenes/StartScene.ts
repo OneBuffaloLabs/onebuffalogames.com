@@ -14,30 +14,27 @@ export class StartScene extends Phaser.Scene {
   create() {
     this.currentDifficulty = settingsManager.getSetting(GAME_ID, 'difficulty', 'normal');
 
-    this.add
-      .text(this.cameras.main.centerX, this.cameras.main.centerY - 150, 'Paddle Battle', {
-        font: '80px "Press Start 2P"',
-        color: '#e7042d',
-      })
-      .setOrigin(0.5);
-
-    this.add
-      .text(
-        this.cameras.main.centerX,
-        this.cameras.main.centerY - 20,
-        `Difficulty: ${this.currentDifficulty.toUpperCase()}`,
-        {
-          font: '24px "Press Start 2P"',
-          color: '#ffffff',
-        }
-      )
-      .setOrigin(0.5);
-
+    // --- Primary Action: Start Game ---
     const startButton = this.add
       .text(
         this.cameras.main.centerX,
-        this.cameras.main.centerY + 50,
+        this.cameras.main.centerY - 40, // Positioned slightly above center
         'Click or Press Space to Start',
+        {
+          font: '32px "Press Start 2P"',
+          color: '#ffffff',
+          align: 'center',
+        }
+      )
+      .setOrigin(0.5)
+      .setInteractive({ useHandCursor: true });
+
+    // --- Secondary Action: Settings ---
+    const settingsButton = this.add
+      .text(
+        this.cameras.main.centerX,
+        this.cameras.main.centerY + 40, // Positioned below the start button
+        'Settings',
         {
           font: '24px "Press Start 2P"',
           color: '#ffffff',
@@ -46,15 +43,20 @@ export class StartScene extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive({ useHandCursor: true });
 
-    const settingsButton = this.add
-      .text(this.cameras.main.centerX, this.cameras.main.centerY + 120, 'Settings', {
-        font: '32px "Press Start 2P"',
-        color: '#ffffff',
-      })
-      .setOrigin(0.5)
-      .setInteractive({ useHandCursor: true });
+    // --- Tertiary Info: Current Difficulty ---
+    this.add
+      .text(
+        this.cameras.main.centerX,
+        this.cameras.main.height - 40, // Positioned at the bottom
+        `Difficulty: ${this.currentDifficulty.toUpperCase()}`,
+        {
+          font: '16px "Press Start 2P"',
+          color: 'rgba(255, 255, 255, 0.7)', // Muted color
+        }
+      )
+      .setOrigin(0.5);
 
-    // Event listeners are now specific to the buttons
+    // --- Event Listeners ---
     settingsButton.on('pointerover', () => settingsButton.setColor('#e7042d'));
     settingsButton.on('pointerout', () => settingsButton.setColor('#ffffff'));
     settingsButton.on('pointerdown', () => this.scene.start('SettingsScene'));
