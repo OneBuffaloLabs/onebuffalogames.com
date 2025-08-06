@@ -18,6 +18,24 @@
     ]
   },
   {
+    "date": "2025-08-05",
+    "title": "New Game: Paddle Battle Live!",
+    "changes": [
+      {
+        "type": "New",
+        "description": "Our first fully playable arcade classic, Paddle Battle, is now live! Challenge the AI in this Buffalo-themed tribute to the original paddle-and-ball arcade games."
+      },
+      {
+        "type": "New",
+        "description": "Implemented a settings system to choose difficulty and a full stat tracking system using local storage."
+      },
+      {
+        "type": "Improved",
+        "description": "Created a scalable, reusable architecture for embedding Phaser games within the Next.js site."
+      }
+    ]
+  },
+  {
     "date": "2025-07-31",
     "title": "Initial MVP Launch & Core Features",
     "changes": [
