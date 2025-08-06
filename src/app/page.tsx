@@ -38,12 +38,14 @@ export default function HomePage() {
         <HubsSection />
 
         {/* Originals Section */}
-        <FeaturedGamesSection
-          title="One Buffalo Originals"
-          games={originalGamesData}
-          accentColor="red"
-          browseAllLink="/games?filter=originals"
-        />
+        {originalGamesData.length > 0 && (
+          <FeaturedGamesSection
+            title="One Buffalo Originals"
+            games={originalGamesData}
+            accentColor="red"
+            browseAllLink="/games?filter=originals"
+          />
+        )}
 
         {/* Arcade Section */}
         <FeaturedGamesSection
