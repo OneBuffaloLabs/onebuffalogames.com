@@ -54,9 +54,12 @@ export default function AboutPage() {
               Our Partnership with Silo City Games
             </h2>
             <p className="font-mono text-lg leading-relaxed text-gray-300">
-              You might see some of our projects cross-referenced with &quot;Silo City Games.&quot;
-              We maintain an ongoing partnership with their talented team, collaborating on various
-              projects that align with our shared passion for gaming and innovation. This
+              You might see some of our projects cross-referenced with &quot;
+              <a className="text-obl-red" href="https://silocitygames.com" target="_blank">
+                Silo City Games
+              </a>
+              &quot;. We maintain an ongoing partnership with their talented team, collaborating on
+              various projects that align with our shared passion for gaming and innovation. This
               partnership allows us to combine our strengths, share ideas, and bring even more
               exciting experiences to the community.
             </p>
