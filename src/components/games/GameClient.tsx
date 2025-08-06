@@ -9,9 +9,14 @@ import * as statsManager from '@/utils/statsManager';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop } from '@fortawesome/free-solid-svg-icons';
 
+// A responsive placeholder that maintains the correct aspect ratio
+const GameLoadingSkeleton = () => (
+  <div className="w-full max-w-[800px] aspect-[4/3] bg-foreground/10 animate-pulse rounded-lg" />
+);
+
 const GameCanvas = dynamic(() => import('@/components/games/GameCanvas'), {
   ssr: false,
-  loading: () => <div className="w-[800px] h-[600px] bg-foreground/10 animate-pulse rounded-lg" />,
+  loading: () => <GameLoadingSkeleton />,
 });
 
 interface GameClientProps {
@@ -20,7 +25,7 @@ interface GameClientProps {
   description: string;
   controls: string[];
   stats: GameStat[];
-  isDesktopOnly: boolean; // New prop to control mobile visibility
+  isDesktopOnly: boolean;
 }
 
 export default function GameClient({
@@ -57,26 +62,18 @@ export default function GameClient({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="font-press-start text-4xl md:text-5xl mb-8 animate-glow">{title}</h1>
 
-        {/* --- Game Canvas & Mobile Warning --- */}
         <div className="mb-8">
-          {/* Desktop View: Show the game canvas */}
           <div
             className={`${
               isDesktopOnly ? 'hidden md:inline-block' : 'inline-block'
-            } border-4 border-obl-blue rounded-lg p-2 shadow-lg bg-black`}>
+            } w-full max-w-[816px] border-4 border-obl-blue rounded-lg p-1 shadow-lg bg-black`}>
             <div className="flex justify-center">
-              <Suspense
-                fallback={<div className="w-[800px] h-[600px] bg-foreground/10 animate-pulse" />}>
-                {gameConfig ? (
-                  <GameCanvas gameConfig={gameConfig} />
-                ) : (
-                  <div className="w-[800px] h-[600px] bg-foreground/10 animate-pulse" />
-                )}
+              <Suspense fallback={<GameLoadingSkeleton />}>
+                {gameConfig ? <GameCanvas gameConfig={gameConfig} /> : <GameLoadingSkeleton />}
               </Suspense>
             </div>
           </div>
 
-          {/* Mobile Warning: Show only if the game is desktop-only */}
           {isDesktopOnly && (
             <div className="block md:hidden border-4 border-obl-red rounded-lg p-8 max-w-md mx-auto">
               <FontAwesomeIcon icon={faDesktop} className="h-16 w-16 text-obl-red mb-4" />
