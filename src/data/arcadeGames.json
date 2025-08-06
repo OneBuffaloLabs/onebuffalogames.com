@@ -1,7 +1,7 @@
 [
   {
     "title": "Paddle Battle",
-    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Paddle+Battle",
+    "imageUrl": "/images/games/paddle-battle.webp",
     "linkUrl": "/games/arcade/paddle-battle",
     "metaDescription": "Play Paddle Battle, a Buffalo-themed tribute to the original paddle-and-ball arcade games. Features unique snowflake physics and full stat tracking against an AI opponent.",
     "isDesktopOnly": true,
