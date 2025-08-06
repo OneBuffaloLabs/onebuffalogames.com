@@ -2,7 +2,9 @@
  * A generic utility for managing game settings in local storage.
  */
 
-type GameSettings = Record<string, any>;
+// Use a more specific type for setting values instead of 'any'.
+type SettingValue = string | number | boolean;
+type GameSettings = Record<string, SettingValue>;
 
 // --- Private Helper Functions ---
 
@@ -33,7 +35,7 @@ function saveSettings(gameId: string, settings: GameSettings) {
  * @param settingName The name of the setting to save (e.g., 'difficulty').
  * @param value The value to save.
  */
-export function setSetting(gameId: string, settingName: string, value: any) {
+export function setSetting(gameId: string, settingName: string, value: SettingValue) {
   const settings = getSettings(gameId);
   settings[settingName] = value;
   saveSettings(gameId, settings);
@@ -46,7 +48,12 @@ export function setSetting(gameId: string, settingName: string, value: any) {
  * @param defaultValue The value to return if the setting is not found.
  * @returns The saved setting value or the default value.
  */
-export function getSetting<T>(gameId: string, settingName: string, defaultValue: T): T {
+export function getSetting<T extends SettingValue>(
+  gameId: string,
+  settingName: string,
+  defaultValue: T
+): T {
   const settings = getSettings(gameId);
-  return settings[settingName] !== undefined ? settings[settingName] : defaultValue;
+  // The type assertion ensures the return value matches the generic type T.
+  return (settings[settingName] !== undefined ? settings[settingName] : defaultValue) as T;
 }

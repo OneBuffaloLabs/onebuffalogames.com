@@ -21,6 +21,7 @@ export function getGameDetailsBySlug(slug: string) {
     description: game?.description || 'No description available.',
     controls: game?.controls || ['No controls specified.'],
     stats: game?.stats || [],
+    isDesktopOnly: game?.isDesktopOnly ?? false, // Pass the flag, defaulting to false
   };
 }
 
@@ -30,7 +31,6 @@ export function getGameDetailsBySlug(slug: string) {
 export function getAllGameSlugs() {
   return allGames
     .map((game) => {
-      // Remove the leading '/games/' and split the rest into an array
       const slugParts = game.linkUrl.replace('/games/', '').split('/');
       return { slug: slugParts };
     })

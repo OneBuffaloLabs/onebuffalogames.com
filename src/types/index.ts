@@ -30,6 +30,7 @@ export interface Game {
   imageUrl: string;
   linkUrl: string;
   metaDescription: string;
+  isDesktopOnly?: boolean;
   isNew?: boolean;
   isComingSoon?: boolean;
   tags: string[];
