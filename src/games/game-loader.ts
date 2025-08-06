@@ -1,5 +1,6 @@
 import * as Phaser from 'phaser';
 import { paddleBattleConfig } from './paddle-battle/config';
+import { tableBreakerConfig } from './table-breaker/config'; // Import the new config
 
 // This interface extends the base Phaser GameConfig to include a title
 export interface IGameConfig extends Phaser.Types.Core.GameConfig {
@@ -12,6 +13,10 @@ const gameConfigs: { [key: string]: IGameConfig } = {
   'paddle-battle': {
     ...paddleBattleConfig,
     title: 'Paddle Battle',
+  },
+  'table-breaker': {
+    ...tableBreakerConfig,
+    title: 'Table Breaker',
   },
 };
 

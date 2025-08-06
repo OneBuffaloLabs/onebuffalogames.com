@@ -25,6 +25,28 @@
     ]
   },
   {
+    "title": "Table Breaker",
+    "imageUrl": "https://placehold.co/300x200/003091/e7042d?text=Table+Breaker",
+    "linkUrl": "/games/arcade/table-breaker",
+    "metaDescription": "A Buffalo-themed version of the timeless classics Arkanoid and Breakout.",
+    "isDesktopOnly": true,
+    "isNew": true,
+    "tags": ["arcade", "classic"],
+    "releaseDate": "2025-08-06",
+    "popularity": 98,
+    "description": "Smash all the blocks to win!",
+    "controls": [
+      "Use the <span class='text-white font-bold'>LEFT</span> and <span class='text-white font-bold'>RIGHT</span> arrow keys to move the table."
+    ],
+    "stats": [
+      { "key": "gamesPlayed", "label": "Games Played" },
+      { "key": "highScore", "label": "High Score" },
+      { "key": "levelsCompleted", "label": "Levels Completed" },
+      { "key": "blocksSmashed", "label": "Blocks Smashed" },
+      { "key": "totalPlayTime", "label": "Play Time (s)" }
+    ]
+  },
+  {
     "title": "Galaxy Invaders",
     "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
     "linkUrl": "/games/arcade/galaxy-invaders",
@@ -34,19 +56,6 @@
     "tags": ["arcade", "shooter"],
     "releaseDate": "2024-10-25",
     "popularity": 90,
-    "description": "",
-    "controls": []
-  },
-  {
-    "title": "Block Breaker",
-    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
-    "linkUrl": "#",
-    "metaDescription": "",
-    "isDesktopOnly": true,
-    "isComingSoon": true,
-    "tags": ["arcade", "puzzle"],
-    "releaseDate": "2024-09-11",
-    "popularity": 88,
     "description": "",
     "controls": []
   },

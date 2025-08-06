@@ -1,0 +1,12 @@
+import * as Phaser from 'phaser';
+
+export class Football extends Phaser.Physics.Arcade.Sprite {
+  constructor(scene: Phaser.Scene, x: number, y: number) {
+    super(scene, x, y, 'football');
+    scene.add.existing(this);
+    scene.physics.add.existing(this);
+    this.setCollideWorldBounds(true);
+    this.setBounce(1, 1);
+    this.setVelocity(200, -300);
+  }
+}
