@@ -15,17 +15,30 @@ export interface Hub {
 }
 
 /**
+ * Defines a single stat to be displayed for a game.
+ */
+export interface GameStat {
+  key: string; // The key used in local storage (e.g., 'playerWins')
+  label: string; // The display label for the stat (e.g., 'Player Wins')
+}
+
+/**
  * Defines the structure for a Game object.
  */
 export interface Game {
   title: string;
   imageUrl: string;
   linkUrl: string;
+  metaDescription: string;
+  isDesktopOnly?: boolean;
   isNew?: boolean;
   isComingSoon?: boolean;
   tags: string[];
   releaseDate: string;
   popularity: number;
+  description: string;
+  controls: string[];
+  stats?: GameStat[];
 }
 
 /**

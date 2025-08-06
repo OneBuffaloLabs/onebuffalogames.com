@@ -1,34 +1,66 @@
 [
   {
+    "title": "Paddle Battle",
+    "imageUrl": "/images/games/paddle-battle.webp",
+    "linkUrl": "/games/arcade/paddle-battle",
+    "metaDescription": "Play Paddle Battle, a Buffalo-themed tribute to the original paddle-and-ball arcade games. Features unique snowflake physics and full stat tracking against an AI opponent.",
+    "isDesktopOnly": true,
+    "isNew": true,
+    "tags": ["arcade", "classic"],
+    "releaseDate": "2025-08-05",
+    "popularity": 95,
+    "description": "First to 10 points wins!",
+    "controls": [
+      "Use the <span class='text-white font-bold'>UP</span> and <span class='text-white font-bold'>DOWN</span> arrow keys to move your paddle.",
+      "Press <span class='text-white font-bold'>P</span> to pause the game.",
+      "Press <span class='text-white font-bold'>SPACE</span> to restart after game over."
+    ],
+    "stats": [
+      { "key": "gamesPlayed", "label": "Games Played" },
+      { "key": "playerWins", "label": "Wins" },
+      { "key": "playerLosses", "label": "Losses" },
+      { "key": "longestRally", "label": "Longest Rally" },
+      { "key": "totalRallies", "label": "Total Paddle Hits" },
+      { "key": "totalPlayTime", "label": "Play Time (s)" }
+    ]
+  },
+  {
     "title": "Galaxy Invaders",
     "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
-    "linkUrl": "#",
+    "linkUrl": "/games/arcade/galaxy-invaders",
+    "metaDescription": "",
+    "isDesktopOnly": true,
+    "isComingSoon": true,
     "tags": ["arcade", "shooter"],
     "releaseDate": "2024-10-25",
-    "popularity": 90
+    "popularity": 90,
+    "description": "",
+    "controls": []
   },
   {
     "title": "Block Breaker",
     "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
     "linkUrl": "#",
+    "metaDescription": "",
+    "isDesktopOnly": true,
+    "isComingSoon": true,
     "tags": ["arcade", "puzzle"],
     "releaseDate": "2024-09-11",
-    "popularity": 88
-  },
-  {
-    "title": "Road Racer",
-    "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
-    "linkUrl": "#",
-    "tags": ["arcade", "racing"],
-    "releaseDate": "2024-11-05",
-    "popularity": 75
+    "popularity": 88,
+    "description": "",
+    "controls": []
   },
   {
     "title": "Maze Mania",
     "imageUrl": "https://placehold.co/300x200/e7042d/003091?text=Arcade+Classic",
     "linkUrl": "#",
+    "metaDescription": "",
+    "isDesktopOnly": true,
+    "isComingSoon": true,
     "tags": ["arcade", "puzzle", "strategy"],
     "releaseDate": "2024-08-19",
-    "popularity": 82
+    "popularity": 82,
+    "description": "",
+    "controls": []
   }
 ]
