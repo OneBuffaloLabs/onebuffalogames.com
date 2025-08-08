@@ -18,6 +18,13 @@ export class MainScene extends Phaser.Scene {
     super({ key: 'MainScene' });
   }
 
+  preload() {
+    this.load.image('football', '/images/games/table-breaker/football.png');
+
+    // this.load.image('table', '/images/games/table-breaker/table.png');
+    // this.load.image('ice-block', '/images/games/table-breaker/ice-block.png');
+  }
+
   create() {
     // --- STATS ---
     statsManager.incrementStat(GAME_ID, 'gamesPlayed');
