@@ -7,24 +7,26 @@ import {
   faLinkedin,
   faGithub,
   faBluesky,
+  faReddit,
 } from '@fortawesome/free-brands-svg-icons';
 
 export function Footer() {
   const socialLinks = [
-    {
-      icon: faLinkedin,
-      href: 'https://www.linkedin.com/company/one-buffalo-labs',
-      name: 'LinkedIn',
-    },
-    { icon: faXTwitter, href: 'https://x.com/OneBuffaloLabs', name: 'X' },
-    { icon: faInstagram, href: 'https://www.instagram.com/onebuffalolabs/', name: 'Instagram' },
-    { icon: faGithub, href: 'https://github.com/OneBuffaloLabs', name: 'GitHub' },
+    { icon: faReddit, href: 'https://www.reddit.com/r/onebuffalogames', name: 'Reddit' },
     {
       icon: faFacebookF,
       href: 'https://www.facebook.com/profile.php?id=61578291081644',
       name: 'Facebook',
     },
+    { icon: faXTwitter, href: 'https://x.com/OneBuffaloLabs', name: 'X' },
+    { icon: faGithub, href: 'https://github.com/OneBuffaloLabs', name: 'GitHub' },
+    { icon: faInstagram, href: 'https://www.instagram.com/onebuffalolabs/', name: 'Instagram' },
     { icon: faBluesky, href: 'https://bsky.app/profile/onebuffalolabs.com', name: 'Bluesky' },
+    {
+      icon: faLinkedin,
+      href: 'https://www.linkedin.com/company/one-buffalo-labs',
+      name: 'LinkedIn',
+    },
   ];
 
   const startYear = 2025;
