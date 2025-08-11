@@ -102,7 +102,7 @@ export function generateMetadata({
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: `${title || 'One Buffalo Labs'} - Digital Solutions`,
+         alt: `${title || 'One Buffalo Games'} - Gaming Tools and Hubs`,
           type: 'image/png',
         },
       ],
